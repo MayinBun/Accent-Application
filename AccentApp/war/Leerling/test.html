@@ -1,0 +1,22 @@
+<html>
+<script language="javascript">
+var curr=0 ;
+function addradio()
+{
+    document.getElementById("my_div").innerHTML=document.getElementById("my_div").innerHTML+
+"<br><input type='radio' id='my"+curr+"'  value='1' name='my"+curr+"'>1 "+
+"<input type='radio' id='my"+curr+"' value='2' name='my"+curr+"'>2 "+
+"<input type='radio' id='my"+curr+"' value='3' name='my"+curr+"'>3 "+
+"<input type='radio' id='my"+curr+"' value='4' name='my"+curr+"'>4 "; 
+  curr=curr+1;
+}
+
+</script>
+<body>
+<form name="form" action="homep.php" method="">
+<input type="button" value="test" onClick="addradio()">
+<div id="my_div"></div>
+  <input type="submit" name="Submit" value="Submit">
+</form>
+</body>
+</html>

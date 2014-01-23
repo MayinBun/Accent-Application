@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    
+ <welcome-file-list>
+   <welcome-file>Inloggen.jsp</welcome-file>
+   </welcome-file-list>
+    
+  <filter> 
+    <filter-name>IndexFilter</filter-name>
+    <filter-class>com.appspot.accent.controller.IndexFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>IndexFilter</filter-name>
+    <url-pattern>/Index.jsp</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.appspot.accent.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.appspot.accent.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>LeerlingToevoegenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.LeerlingToevoegenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LeerlingToevoegenServlet</servlet-name>
+    <url-pattern>/Administrator/LeerlingToevoegenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+      <servlet-name>LeerlingVerwijderenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.LeerlingVerwijderenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LeerlingVerwijderenServlet</servlet-name>
+    <url-pattern>/Docent/LeerlingVerwijderenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>DocentToevoegenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.DocentToevoegenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DocentToevoegenServlet</servlet-name>
+    <url-pattern>/Administrator/DocentToevoegenServlet.do</url-pattern>
+  </servlet-mapping>
+  <!-- 
+  notatie van de servlet die de stagebegeleider toevoegd  -->
+    <servlet>
+      <servlet-name>StagebegeleidertoevoegenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.StagebegeleidertoevoegenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StagebegeleidertoevoegenServlet</servlet-name>
+    <url-pattern>/Administrator/StagebegeleidertoevoegenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>CompetentieToevoegenServlet</servlet-name>
+    <servlet-class>com.appspot.accent.controller.CompetentieToevoegenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CompetentieToevoegenServlet</servlet-name>
+    <url-pattern>/Administrator/CompetentieToevoegenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CompetentieWijzigenServlet</servlet-name>
+    <servlet-class>com.appspot.accent.controller.CompetentieWijzigenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CompetentieWijzigenServlet</servlet-name>
+    <url-pattern>/Administrator/CompetentieWijzigenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CompetentiesVerwijderenServlet</servlet-name>
+    <servlet-class>com.appspot.accent.controller.CompetentiesVerwijderenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CompetentiesVerwijderenServlet</servlet-name>
+    <url-pattern>/Administrator/CompetentiesVerwijderenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+    <listener-class>com.appspot.accent.controller.SessionCounterListener</listener-class>
+  </listener>
+  
+  <listener>
+    <listener-class>com.appspot.accent.controller.ContextListener</listener-class>
+  </listener>
+    
+</web-app>
