@@ -25,6 +25,7 @@
 				  				<li><a href="Administrator/Competentiestoevoegen.jsp">Competentie toevoegen </a></li>
 				  				<li><a href="Administrator/Competentieswijzigen.jsp">Competentie wijzigen</a></li>
 				  				<li><a href="Administrator/Competentiesverwijderen.jsp">Competentie verwijderen</a></li>
+				  				<li><a href="Administrator/lijstLeerlingen.jsp">Leerlingen beheer</a></li>
 				 			</ul>
 						</div>
 					</div>

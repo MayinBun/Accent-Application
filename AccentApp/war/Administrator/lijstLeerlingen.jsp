@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <jsp:include page="../pageHeader.jsp">
 	<jsp:param name="titel" value="Leerlingen Lijst" />
 </jsp:include>        
@@ -10,10 +11,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%List<User> allUsers = Dao.INSTANCE.getAlleLeerlingen();%>
-<link rel="stylesheet" type="text/css" href="/CSS/docent-style.css">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/CSS/admin-style.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/Scripts/admin-scripts.js"></script>
 
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
@@ -21,8 +21,14 @@
 		<div id ="menu">
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
-  				<li><a href="Mijnleerlingen.jsp">Mijn Leerlingen</a></li>
-  				<li><a href="alleLeerlingen.jsp">Alle Leerlingen</a></li>
+				<li><a href="Leerlingtoevoegen.jsp">Leerling toevoegen</a></li>
+				<li><a href="Docenttoevoegen.jsp">Docent toevoegen</a></li>
+				<li><a href="Stagebegeleidertoevoegen.jsp">Begeleider toevoegen</a></li>
+  				<li><a href="Competentiestoevoegen.jsp">Competentie toevoegen </a></li>
+  				<li><a href="Competentieswijzigen.jsp">Competentie wijzigen</a></li>
+  				<li><a href="Competentiesverwijderen.jsp">Competentie verwijderen</a></li>
+  				<li><a href="lijstLeerlingen.jsp">Leerlingen beheer</a>
+  				
  			</ul>
 		</div>
 	</div>
@@ -47,9 +53,17 @@
 </td>
 <td>
 
-<img src="../images/new.png" height="25px" width="25px" id="+img" class="+img">
+<img src="../images/new.png" height="25px" width="25px" id="img" class="img">
 <div id="popup_box">
-	<input type="text" placeholder="Leerling">
+	
+	
+	
+	<div id="inputbox">
+	<input type="text" class="ltf" placeholder="Leerling gebruiksnaam"><br>
+	<input type="text" class="ltf" placeholder ="wachtwoord"><br>
+	</div>
+	
+	<input type="button" id="button" name="enter" value="Toevoegen"> <input type="button" name="cancel" value="Annuleren" id="popcancel">
 </div>
 
 <form style="display:inline" action="LeerlingVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
