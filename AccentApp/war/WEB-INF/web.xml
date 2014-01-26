@@ -49,7 +49,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LeerlingVerwijderenServlet</servlet-name>
-    <url-pattern>/Docent/LeerlingVerwijderenServlet.do</url-pattern>
+    <url-pattern>/Administrator/LeerlingVerwijderenServlet.do</url-pattern>
   </servlet-mapping>
   
   <servlet>

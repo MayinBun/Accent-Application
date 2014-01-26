@@ -1,28 +1,39 @@
 @CHARSET "ISO-8859-1";
+div{
+	display:block;
+}
 
 #popup_box { 
     display:none; /* Hide the DIV */
     position:fixed;  
     _position:absolute; /* hack for internet explorer 6 */  
-    height:300px;  
+    height:175px;  
     width:400px;  
     background:#FFFFFF;  
     left: 400px;
     top: 150px;
     z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
     margin-left: 15px;  
+    border-radius:7px;
     
-    /* additional features, can be omitted */
-    border:2px solid #ff0000;       
-    -moz-box-shadow: 0 0 5px #ff0000;
-    -webkit-box-shadow: 0 0 5px #ff0000;
-    box-shadow: 0 0 5px #ff0000;
+    border:2px solid rgb(124,171,29);       
+    -moz-box-shadow: 0 0 5px rgb(124,171,29);
+    -webkit-box-shadow: 0 0 5px rgb(124,171,29);
+    box-shadow: 0 0 5px rgb(124,171,29);
     
 }
 
 #inputbox{
-	
-	margin-left:100px;
+	width:80%;
+	float:left;
+	margin-left:30%;
+	margin-right:auto;
+}
+
+#popcontainer{
+	width:70%;
+	margin-left:0;
+	margin-right:auto;
 }
 
 #popupBoxClose {
@@ -33,4 +44,36 @@
     position:absolute;  
     color:#6fa5e2;  
     font-weight:500;      
+}
+
+#popup_box2 { 
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:175px;  
+    width:400px;  
+    background:#FFFFFF;  
+    left: 400px;
+    top: 150px;
+    z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+    margin-left: 15px;  
+    border-radius:7px;
+    
+    border:2px solid rgb(124,171,29);       
+    -moz-box-shadow: 0 0 5px rgb(124,171,29);
+    -webkit-box-shadow: 0 0 5px rgb(124,171,29);
+    box-shadow: 0 0 5px rgb(124,171,29);
+    
+}
+
+#inputbox2{
+	width:80%;
+	float:left;
+	margin-left:30%;
+	margin-right:auto;
+}
+#popcontainer2{
+	width:70%;
+	margin-left:0;
+	margin-right:auto;
 }

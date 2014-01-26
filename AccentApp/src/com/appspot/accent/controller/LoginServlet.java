@@ -24,6 +24,8 @@ import com.appspot.accent.model.User;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	static int errorLogin = 1;
+	static int correctLogin = 1;
     private ArrayList<User>users;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -104,15 +106,23 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("error", error);
 		rd = request.getRequestDispatcher("Inloggen.jsp");
 		rd.forward(request, response);
+		errorLogin++;
 	}
 	
 	else{
 		rd = request.getRequestDispatcher( "Index.jsp" );
 		session.setAttribute("LoggedUser", username);
 		rd.forward(request, response);
+		correctLogin++;
 	}
 	
 		
-}	
+}
+	 public static int getErrorLogin(){
+			return errorLogin;
+		  }
+	 public static int getCorrectLogin(){
+		 return correctLogin;
+	 }
 
 }

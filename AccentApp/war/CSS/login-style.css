@@ -12,7 +12,8 @@ div{
 
 #type{
 	border-color:rgb(124,171,29);
-	border-width:3px;
+	border-width:2px;
+	border-radius:3px;
 }
 
 

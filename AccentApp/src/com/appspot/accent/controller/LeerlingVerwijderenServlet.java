@@ -22,7 +22,7 @@ public class LeerlingVerwijderenServlet extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		Dao.INSTANCE.removeLeerling(Long.parseLong(id));
-		response.sendRedirect("lijstLeerlingen.jsp");
+		request.getRequestDispatcher("lijstLeerlingen.jsp").forward(request, response);
 	}
 }
 

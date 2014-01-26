@@ -22,27 +22,24 @@ public class LeerlingToevoegenServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String error;
 		String succes;
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = request.getParameter("username").trim().toLowerCase();
+		String password = request.getParameter("password").trim().toLowerCase();
 		
 		
 		Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 		
-		if(admin.zoekLeerling(username) == true){
-		error = "Er bestaat al een leerling met hetzelfde gebruiksnaam";
-		request.setAttribute("message",error);
-		}
 		
-		else{
-			
-				User newUser = new Leerling(username,password);
-				admin.createUser(newUser);
+			if(!username.equals("") && !password.equals("")){
 				Dao.INSTANCE.createLeerling(username, password);
 				succes = "Leerling succesvol aangemaakt";
-				request.setAttribute("message", succes);
-			}		
+				request.setAttribute("lvmessage", succes);
+			}
+			else{
+				error = "Velden mogen niet leeg zijn!";
+				request.setAttribute("lvmessage", error);
+			}
 		
-		request.getRequestDispatcher("Leerlingtoevoegen.jsp").forward(request, response);
+		request.getRequestDispatcher("lijstLeerlingen.jsp").forward(request, response);
 	}
 }
 			
