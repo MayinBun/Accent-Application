@@ -10,6 +10,10 @@ div{
 	display:block;
 }
 
+#type{
+	border-color:rgb(124,171,29);
+	border-width:3px;
+}
 
 
 .ltf {  /*Login pagina inputboxen style*/

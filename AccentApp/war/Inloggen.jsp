@@ -1,8 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- Getest met Chrome - Firefox - Internet Explorer -->
-<!-- Ingo  -->
-<!-- aasdasd -->
-<!-- testestestes -->
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="CSS/login-style.css">
@@ -41,7 +38,7 @@ setInterval(function(){$("#error").fadeToggle();}, 2000);
 			${error}
 	</div>
 	
-<form action="LoginServlet.do" method="Get">
+<form action="LoginServlet.do" method="post">
 
 <!-- Login inputvelden -->
 	<div id="login-content">
@@ -51,7 +48,13 @@ setInterval(function(){$("#error").fadeToggle();}, 2000);
 	
 <!-- Login Microsoft image & submit buton -->
 	<div id="login-content-buttons">
-			<input id="button" type="submit" name="button" value="Inloggen" >
+		<select id="type" class="type" name="type">
+		<option value="Leerling">Leerling</option>
+		<option value="Docent">Docent</option>
+		<option value="Stagebegeleider">Stagebegeleider</option>
+		<option value="Administrator">Administrator</option>
+		</select>	
+		<input id="button" type="submit" name="button" value="Inloggen" > 
 	</div>
 </form>
 

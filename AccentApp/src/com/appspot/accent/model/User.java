@@ -17,9 +17,7 @@ public class User implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	protected Long id;
+	@Id @GeneratedValue Long id;
 	private String username;
 	private String password;
 	
@@ -34,7 +32,7 @@ public class User implements Serializable {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.username = username.trim();
 	}
 
 	public String getPassword() {
@@ -45,7 +43,7 @@ public class User implements Serializable {
 		this.password = password;
 	}
 	
-	public long getId(){
+	public Long getId(){
 		return id;
 	}
 	

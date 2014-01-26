@@ -34,7 +34,7 @@ public class Stagebegeleider extends User {
 		return mijnCompetenties;
 	}
 	
-	public long getId(){
+	public Long getId(){
 		return id;
 	}
 }

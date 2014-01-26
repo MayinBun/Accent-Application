@@ -23,10 +23,11 @@
 					<!-- Tonen van naam van ingelogde user -->
 					<%if(o != null){ %>
 					Welkom ${LoggedUser}<br><br>
-					<form action="../LogoutServlet.do" method="post">
+					<form action="../LogoutServlet.do" method = "post">
 					<input id="button" type="submit" name="uitloggen" value="Uitloggen" onclick="submit()">
 					<%}%>
 					</form>
+					
 					<%if(o == null){ %>
 					<input id="button" type="submit" value="Inloggen" onclick="location.href='Inloggen.jsp'"><br/>
 					<%}%>
