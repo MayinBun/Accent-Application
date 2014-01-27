@@ -44,7 +44,7 @@
 					          ['Niet succesvol', <%= LoginServlet.getErrorLogin() %>],
 					       
 					        ]);
-					      
+					      // test
 					        // Create and draw the visualization.
 					        new google.visualization.PieChart(document.getElementById('visualization')).
 					            draw(data, {title:"Overzicht inlogpogingen" ,is3D: true, colors:['#28e351','#e00e41']});
