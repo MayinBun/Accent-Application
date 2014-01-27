@@ -24,5 +24,5 @@ jQuery(function () {
 		 
 		 function unloadPopupBox() {    // TO Unload the Popupbox
 	            $('#popup_box').fadeOut("slow");
-		 })
-}
+		 };
+})

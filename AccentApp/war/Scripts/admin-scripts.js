@@ -36,5 +36,5 @@
 		
 	});		
 		 
-});
+});*/
 //////////Popup leerling toevoegen////////	 
