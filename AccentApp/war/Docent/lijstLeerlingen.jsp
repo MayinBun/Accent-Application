@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
+<script src="../Scripts/sorttable.js"></script>
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
 	<div id="wrapper-menu">
@@ -34,9 +34,9 @@
 				<p>${message}</p>		
 			
 			
-<table id="table" >
+<table id="table"class="sortable"> 
   <tr>
-      <th>Leerling naam </th>
+      <th>Leerlingnaam </th>
       <th>Tools</th>
     </tr>
 
@@ -46,18 +46,7 @@
 <%=ci.getUsername()%>
 </td>
 <td>
-
-<img src="../images/new.png" height="25px" width="25px" id="+img" class="+img">
-<div id="popup_box">
-	<input type="text" placeholder="Leerling">
-</div>
-
-<form style="display:inline" action="LeerlingVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
-<input type="image" src="../images/delete.png" height="25px" width="25px">
-</form>
-<form style="display:inline" action="LeerlingWijzigenServlet.do" method="post">
-<input type="image" src="../images/edit.png" height="25px" width="25px">
-</form>
+<input type="image" src="../images/new.png" height="25px" width="25px">
 </td>
 <%} %>
 </tr>
