@@ -53,7 +53,7 @@
 					
 					      google.setOnLoadCallback(drawVisualization);
 					    </script>
-							 <div id="visualization" style="width: 600px; height: 400px;"></div>				 
+							 <div id="visualization" style="width: 500px; height: 300px;"></div>				 
 						</div>
 							
 						</div>
