@@ -10,18 +10,12 @@
 <%@ page import="com.appspot.accent.dao.Dao"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%List<User> allUsers = Dao.INSTANCE.getAlleLeerlingen();%>
+<%List<User> allUsers = Dao.INSTANCE.getAlleDocenten();%>
 <link rel="stylesheet" href="/CSS/admin-style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://tablesorter.com/addons/pager/jquery.tablesorter.pager.js"></script>
 <script src="/Scripts/admin-scripts.js"></script>
-<script>
-$(document).ready(function() 
-	    { 
-	        $("#mytable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
-	    } 
-	); 
-</script>
+
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
 	<div id="wrapper-menu">
@@ -47,14 +41,13 @@ $(document).ready(function()
 				<p>${lvmessage}</p>		
 			
 			
-<table id="mytable" >
-<thead>
+<table id="table" >
   <tr>
       <th>Gebruiksnaam </th>
       <th>Wachtwoord</th>
       <th>Tools</th>
-  </tr>
-</thead>
+    </tr>
+
 <% for (User ci : allUsers) {%>
 <tr> 
 <td>
@@ -67,7 +60,7 @@ $(document).ready(function()
 
 <td>
 <!-- Verwijderen van leerlingen -->
-<form style="display:inline" action="LeerlingVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
+<form style="display:inline" action="DocentVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
 <input type="image" src="../images/delete.png" height="25px" width="25px" >
 </form>
 

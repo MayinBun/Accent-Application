@@ -3,8 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <jsp:include page="../pageHeader.jsp">
 	<jsp:param name="titel" value="Competenties verwijderen" />
-</jsp:include>    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+</jsp:include>      
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.CompetentieItem" %>
 <%@ page import="com.appspot.accent.model.User" %>

@@ -4,7 +4,6 @@
 <jsp:include page="../pageHeader.jsp">
 	<jsp:param name="titel" value="Competentie toevoegen" />
 </jsp:include>    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.CompetentieItem" %>
 <%@ page import="java.util.ArrayList" %>

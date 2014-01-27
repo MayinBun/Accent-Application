@@ -28,18 +28,20 @@ public class LeerlingToevoegenServlet extends HttpServlet {
 		
 		Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 		
-		
+			
 			if(!username.equals("") && !password.equals("")){
+				synchronized(this){
 				Dao.INSTANCE.createLeerling(username, password);
 				succes = "Leerling succesvol aangemaakt";
 				request.setAttribute("lvmessage", succes);
+			}
 			}
 			else{
 				error = "Velden mogen niet leeg zijn!";
 				request.setAttribute("lvmessage", error);
 			}
 		
-		request.getRequestDispatcher("lijstLeerlingen.jsp").forward(request, response);
+		response.sendRedirect("lijstLeerlingen.jsp");
 	}
 }
 			

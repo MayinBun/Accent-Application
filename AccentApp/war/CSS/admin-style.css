@@ -10,8 +10,8 @@ div{
     height:175px;  
     width:400px;  
     background:#FFFFFF;  
-    left: 400px;
-    top: 150px;
+    left: 700px;
+    top: 200px;
     z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
     margin-left: 15px;  
     border-radius:7px;
