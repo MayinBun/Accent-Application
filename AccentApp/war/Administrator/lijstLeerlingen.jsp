@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/CSS/admin-style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="/Scripts/admin-scripts.js"></script>
-
+<script src="../Scripts/sorttable.js"></script>
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
 	<div id="wrapper-menu">
@@ -39,7 +39,7 @@
 				<p>${lvmessage}</p>		
 			
 			
-<table id="mytable" >
+<table id="mytable" class="sortable">
 <thead>
   <tr>
       <th>Gebruiksnaam </th>
