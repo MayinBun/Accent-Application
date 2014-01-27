@@ -13,7 +13,7 @@
 
 	<%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <head>
-<script src="/Scripts/sorttable.js"></script>
+<script src="../Scripts/sorttable.js"></script>
 </head>
 <!-- wrapper (content + menu) -->
 <div class="wrapper">

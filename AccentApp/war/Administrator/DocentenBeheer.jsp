@@ -22,14 +22,12 @@
 		<div id ="menu">
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
-				<li><a href="Leerlingtoevoegen.jsp">Leerling toevoegen</a></li>
-				<li><a href="Docenttoevoegen.jsp">Docent toevoegen</a></li>
-				<li><a href="Stagebegeleidertoevoegen.jsp">Begeleider toevoegen</a></li>
-  				<li><a href="Competentiestoevoegen.jsp">Competentie toevoegen </a></li>
+				<li><a href="lijstLeerlingen.jsp">Leerlingen Beheer</a></li>
+				<li><a href="DoentenBeheer.jsp">Docenten Beheer</a></li>
+				<li><a href="Stagebegeleidertoevoegen.jsp">Begeleider Beheer</a></li>
+  				<li><a href="CompetentiesBeheer.jsp">Competenties Beheer </a></li>
   				<li><a href="Competentieswijzigen.jsp">Competentie wijzigen</a></li>
   				<li><a href="Competentiesverwijderen.jsp">Competentie verwijderen</a></li>
-  				<li><a href="lijstLeerlingen.jsp">Leerlingen beheer</a>
-  				
  			</ul>
 		</div>
 	</div>
@@ -59,7 +57,7 @@
 </td>
 
 <td>
-<!-- Verwijderen van leerlingen -->
+<!-- Verwijderen van docenten -->
 <form style="display:inline" action="DocentVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
 <input type="image" src="../images/delete.png" height="25px" width="25px" >
 </form>
