@@ -110,9 +110,8 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	else{
-		rd = request.getRequestDispatcher( "Index.jsp" );
 		session.setAttribute("LoggedUser", username);
-		rd.forward(request, response);
+		response.sendRedirect("Index.jsp");
 		correctLogin++;
 	}
 	
