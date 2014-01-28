@@ -23,6 +23,8 @@ public class ContextListener implements ServletContextListener {
     	Administrator admin = new Administrator("admin","admin");
     	users.add(admin);
     	
+    	
+    	//Demo lijst
     	CompetentieItem c = new CompetentieItem("");
     	CompetentieItem c1 = new CompetentieItem("1. Samenwerken en overleggen");
     	CompetentieItem c2 = new CompetentieItem("2. Aandacht en begrip tonen");

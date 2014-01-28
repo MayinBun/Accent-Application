@@ -28,7 +28,7 @@ public class CompetentieToevoegenServlet extends HttpServlet {
 		
 		else{error = "Omschrijving mag niet leeg zijn"; request.setAttribute("message", error);}
 		
-		request.getRequestDispatcher("CompetentiesBeheer.jsp").forward(request, response);
+		response.sendRedirect("CompetentiesBeheer.jsp");
 		
 		
 	}

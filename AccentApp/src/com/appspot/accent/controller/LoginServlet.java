@@ -76,9 +76,10 @@ public class LoginServlet extends HttpServlet {
 			}
 	}
 	else if(inlogtype.equals("Administrator")){
+		List<User> admins = Dao.INSTANCE.getAlleAdmins();
 		found = false;
-			for(User d : users){
-				if(d.getUsername().equalsIgnoreCase(username) && d.getPassword().equalsIgnoreCase(password) && d instanceof Administrator){
+			for(User d : admins){
+				if(d.getUsername().equalsIgnoreCase(username) && d.getPassword().equalsIgnoreCase(password)){
 				response.addCookie(new Cookie("cUS",username));
 				request.getSession().setAttribute( "userobject", d );
 				logger.info("Ingelogd als Administrator");
