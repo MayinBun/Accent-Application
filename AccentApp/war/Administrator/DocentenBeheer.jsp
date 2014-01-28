@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <jsp:include page="../pageHeader.jsp">
-	<jsp:param name="titel" value="Leerlingen Beheer" />
+	<jsp:param name="titel" value="Docenten Beheer" />
 </jsp:include>        
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.CompetentieItem" %>
@@ -23,11 +23,9 @@
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
 				<li><a href="lijstLeerlingen.jsp">Leerlingen Beheer</a></li>
-				<li><a href="DoentenBeheer.jsp">Docenten Beheer</a></li>
+				<li><a href="DocentenBeheer.jsp">Docenten Beheer</a></li>
 				<li><a href="Stagebegeleidertoevoegen.jsp">Begeleider Beheer</a></li>
   				<li><a href="CompetentiesBeheer.jsp">Competenties Beheer </a></li>
-  				<li><a href="Competentieswijzigen.jsp">Competentie wijzigen</a></li>
-  				<li><a href="Competentiesverwijderen.jsp">Competentie verwijderen</a></li>
  			</ul>
 		</div>
 	</div>
@@ -62,74 +60,17 @@
 <input type="image" src="../images/delete.png" height="25px" width="25px" >
 </form>
 
-<img src="../images/edit.png" height="25px" width="25px" id="wzg" class="<%=ci.getId()%>" style="cursor: pointer; cursor: hand;">
-
-<div id="popup_box2">
-	<div id="popcontainer2">
-		<div id="inputbox2">
-			<h3>Gegevens wijzigen</h3>
-			<form style="display:inline" action="LeerlingWijzigenServlet.do" method="post">
-			<input type="text" name="username" class="ltf"  value=<%=ci.getUsername()%>><br>
-			<input type="text" name="password" class="ltf"  value=<%=ci.getPassword()%>><br>
-			<input type="button" id="button" name="enter" value="Wijzigen" style="float:left;" onclick="submit()">
-			<input type="button" id="popcancel2" name="popcancel2" value="Annuleren" style="margin-left:120px;">
-			</form>
-		</div>
-	</div>
-</div>
 </td>
-<script>
-$( document ).ready(function() {
-	$('#wzg').click(function( event ) {
-		loadPopupBox2();
-    });
-	
-	$('#popcancel2').click( function() {
-		unloadPopupBox2();
-	});
-	 
-	$( "#img" ).click(function( event ) {
-        loadPopupBox();
-    });
-	
-	$('#popcancel').click( function() {
-		unloadPopupBox();
-	});
-	
-	function loadPopupBox() {    // To Load the Popupbox
-        $('#popup_box').fadeIn("slow");
-	}
-	
-	function unloadPopupBox(){
-		$('#popup_box').fadeOut("slow");
-	}
-	
-	function loadPopupBox2() {    // To Load the Popupbox
-        $('#popup_box2').fadeIn("slow");
-	}
-	
-	function unloadPopupBox2(){
-		$('#popup_box2').fadeOut("slow");
-	}
-	
-});		
-
-
-
-
-</script>
-
-
 <%} %>
 </tr>
 </table>
 
-<img src="../images/new.png" height="25px" width="25px" style="cursor: pointer; cursor: hand;" id="img" class="img"> Nieuwe Leerling toevoegen
+<img src="../images/new.png" height="25px" width="25px" style="cursor: pointer; cursor: hand;" id="img" class="img"> Nieuwe Docent toevoegen
 <div id="popup_box">
 	<div id="popcontainer">
 		<div id="inputbox">
-			<h3>Nieuwe leerling toevoegen</h3>
-			<form style="display:inline" action="LeerlingToevoegenServlet.do" method="post" onsubmit="setTimeout('location.reload());">
+			<h3>Nieuwe docent toevoegen</h3>
+			<form style="display:inline" action="DocentToevoegenServlet.do" method="post" onsubmit="setTimeout('location.reload());">
 			<input type="text" name="username" class="ltf" placeholder="gebruiksnaam"><br>
 			<input type="text" name="password" class="ltf" placeholder ="wachtwoord"><br>
 			<input type="button" id="button" name="enter" value="Toevoegen" style="float:left;" onclick="submit()">

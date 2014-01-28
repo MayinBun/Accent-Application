@@ -1,4 +1,4 @@
-/*jQuery(function () { 
+jQuery(function () { 
 	
 	$( document ).ready(function() {
 		
@@ -36,5 +36,5 @@
 		
 	});		
 		 
-});*/
+});
 //////////Popup leerling toevoegen////////	 

@@ -1,7 +1,10 @@
 package com.appspot.accent.controller;
+import com.appspot.accent.dao.Dao;
 import com.appspot.accent.model.*;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,28 +24,18 @@ public class StagebegeleidertoevoegenServlet extends HttpServlet {
 		String succes;
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-	
 		
-		Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 		
-		if(admin.zoekBegeleider(username) == true){
-		error = "Er bestaat al een Stagebegeleider met hetzelfde gebruiksnaam";
-		request.setAttribute("message",error);
-		}
 		
-		else{
-			
-				User newUser = new Stagebegeleider(username,password);
-				admin.createUser(newUser);
-				succes = "Stagebegeleider succesvol toegevoegd!";
+		if(!username.equals("")&&!password.equals("")){
+		
+			    List<User> docenten = Dao.INSTANCE.getAlleDocenten();
+				Dao.INSTANCE.createDocent(username, password);
+				succes = "Docent succesvol toegevoegd!";
 				request.setAttribute("message", succes);
-			}		
+		}
+		else{error = "Velden mogen niet leeg zijn"; request.setAttribute("message", error);}
 		
-		request.getRequestDispatcher("Stagebegeleidertoevoegen.jsp").forward(request, response);
+		request.getRequestDispatcher("DocentenBeheer.jsp").forward(request, response);
 	}
 }
-			
-		
-	
-
-

@@ -25,23 +25,18 @@ public class DocentToevoegenServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		List<User> docenten = Dao.INSTANCE.getAlleDocenten();
-		Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 		
-		if(admin.zoekDocent(username) == true){
-		error = "Er bestaat al een docent met hetzelfde gebruiksnaam";
-		request.setAttribute("message",error);
-		}
 		
-		else{
-			
-				User newUser = new Leerling(username,password);
-				admin.createUser(newUser);
+		if(!username.equals("")&&!password.equals("")){
+		
+			    List<User> docenten = Dao.INSTANCE.getAlleDocenten();
+				Dao.INSTANCE.createDocent(username, password);
 				succes = "Docent succesvol toegevoegd!";
 				request.setAttribute("message", succes);
-			}		
+		}
+		else{error = "Velden mogen niet leeg zijn"; request.setAttribute("message", error);}
 		
-		request.getRequestDispatcher("Docenttoevoegen.jsp").forward(request, response);
+		request.getRequestDispatcher("DocentenBeheer.jsp").forward(request, response);
 	}
 }
 			

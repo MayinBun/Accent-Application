@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.appspot.accent.dao.Dao;
 import com.appspot.accent.model.Administrator;
 import com.appspot.accent.model.CompetentieItem;
 
@@ -21,28 +22,10 @@ public class CompetentiesVerwijderenServlet extends HttpServlet {
 	}
 
 	protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
-		ArrayList<CompetentieItem> lijst = admin.getAlleCompetentieItems();
-		String item = request.getParameter("id");
-		String error;
-		String succes;
-			
-		try{
-			for(CompetentieItem cti:lijst){
-				
-				if(admin.zoekCompetentieItem(item)){
-				lijst.remove(cti);
-				succes = "Competentie succesvol verwijderd!";
-				request.setAttribute("message", succes);
-				request.getRequestDispatcher("Competentiesverwijderen.jsp").forward(request, response);
-			}
-				else {
-				error = "Selecteer een competentie om te verwijderen!";
-				request.setAttribute("message", error);
-				request.getRequestDispatcher("Competentiesverwijderen.jsp").forward(request, response);
-				}
-			}	
-		}catch(Exception e){e.printStackTrace();}
+		
+		String id = request.getParameter("id");
+		Dao.INSTANCE.removeCompetentieItem(Long.parseLong(id));
+		request.getRequestDispatcher("CompetentiesBeheer.jsp").forward(request, response);
 	
 	}
 }

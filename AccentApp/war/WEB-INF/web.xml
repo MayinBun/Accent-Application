@@ -79,16 +79,7 @@
     <servlet-name>CompetentieToevoegenServlet</servlet-name>
     <url-pattern>/Administrator/CompetentieToevoegenServlet.do</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>CompetentieWijzigenServlet</servlet-name>
-    <servlet-class>com.appspot.accent.controller.CompetentieWijzigenServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CompetentieWijzigenServlet</servlet-name>
-    <url-pattern>/Administrator/CompetentieWijzigenServlet.do</url-pattern>
-  </servlet-mapping>
-  
+ 
   <servlet>
     <servlet-name>CompetentiesVerwijderenServlet</servlet-name>
     <servlet-class>com.appspot.accent.controller.CompetentiesVerwijderenServlet</servlet-class>

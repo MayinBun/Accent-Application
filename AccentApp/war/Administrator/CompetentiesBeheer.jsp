@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <jsp:include page="../pageHeader.jsp">
-	<jsp:param name="titel" value="Leerlingen Beheer" />
+	<jsp:param name="titel" value="Docenten Beheer" />
 </jsp:include>        
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.CompetentieItem" %>
@@ -10,11 +10,12 @@
 <%@ page import="com.appspot.accent.dao.Dao"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%List<User> allUsers = Dao.INSTANCE.getAlleLeerlingen();%>
+<%List<CompetentieItem> items = Dao.INSTANCE.getAlleCompetentieItems();%>
 <link rel="stylesheet" href="/CSS/admin-style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://tablesorter.com/addons/pager/jquery.tablesorter.pager.js"></script>
 <script src="/Scripts/admin-scripts.js"></script>
-<script src="../Scripts/sorttable.js"></script>
+
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
 	<div id="wrapper-menu">
@@ -22,7 +23,7 @@
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
 				<li><a href="lijstLeerlingen.jsp">Leerlingen Beheer</a></li>
-				<li><a href="DocentenBeheer.jsp">Docenten Beheer</a></li>
+				<li><a href="DoentenBeheer.jsp">Docenten Beheer</a></li>
 				<li><a href="Stagebegeleidertoevoegen.jsp">Begeleider Beheer</a></li>
   				<li><a href="CompetentiesBeheer.jsp">Competenties Beheer </a></li>
  			</ul>
@@ -36,45 +37,41 @@
 				<p>${lvmessage}</p>		
 			
 			
-<table id="mytable" class="sortable">
-<thead>
+<table id="table" >
   <tr>
-      <th>Gebruiksnaam </th>
-      <th>Wachtwoord</th>
+      <th>Id</th>
+      <th>Omschrijving</th>
       <th>Tools</th>
-  </tr>
-</thead>
-<% for (User ci : allUsers) {%>
+    </tr>
+
+<% for (CompetentieItem ci : items) {%>
 <tr> 
 <td>
-<%=ci.getUsername()%>
+<%=ci.getId()%>
 </td>
 
 <td>
-<%=ci.getPassword()%>
+<%=ci.getItemNaam()%>
 </td>
 
 <td>
-<!-- Verwijderen van leerlingen -->
-<form style="display:inline" action="LeerlingVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
+<!-- Verwijderen van docenten -->
+<form style="display:inline" action="CompetentiesVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
 <input type="image" src="../images/delete.png" height="25px" width="25px" >
 </form>
 
 </td>
-
-
 <%} %>
 </tr>
 </table>
 
-<img src="../images/new.png" height="25px" width="25px" style="cursor: pointer; cursor: hand;" id="img" class="img"> Nieuwe Leerling toevoegen
+<img src="../images/new.png" height="25px" width="25px" style="cursor: pointer; cursor: hand;" id="img" class="img"> Nieuwe Competentie toevoegen
 <div id="popup_box">
 	<div id="popcontainer">
 		<div id="inputbox">
-			<h3>Nieuwe leerling toevoegen</h3>
-			<form style="display:inline" action="LeerlingToevoegenServlet.do" method="post" onsubmit="setTimeout('location.reload());">
-			<input type="text" name="username" class="ltf" placeholder="gebruiksnaam"><br>
-			<input type="text" name="password" class="ltf" placeholder ="wachtwoord"><br>
+			<h3>Nieuwe Competentie toevoegen</h3>
+			<form style="display:inline" action="CompetentieToevoegenServlet.do" method="post">
+			<input type="text" name="compnaam" class="ltf" placeholder="Beschrijving"><br>
 			<input type="button" id="button" name="enter" value="Toevoegen" style="float:left;" onclick="submit()">
 			<input type="button" id="popcancel" name="popcancel" value="Annuleren" style="margin-left:120px;">
 			</form>

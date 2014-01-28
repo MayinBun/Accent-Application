@@ -19,13 +19,10 @@
 						<div id ="menu">
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Administrator/Leerlingtoevoegen.jsp">Leerling toevoegen</a></li>
-								<li><a href="Administrator/Docenttoevoegen.jsp">Docent toevoegen</a></li>
-								<li><a href="Administrator/Stagebegeleidertoevoegen.jsp">Begeleider toevoegen</a></li>
-				  				<li><a href="Administrator/Competentiestoevoegen.jsp">Competentie toevoegen </a></li>
-				  				<li><a href="Administrator/Competentieswijzigen.jsp">Competentie wijzigen</a></li>
-				  				<li><a href="Administrator/Competentiesverwijderen.jsp">Competentie verwijderen</a></li>
-				  				<li><a href="Administrator/lijstLeerlingen.jsp">Leerlingen beheer</a></li>
+								<li><a href="Administrator/lijstLeerlingen.jsp">Leerlingen Beheer</a></li>
+								<li><a href="Administrator/DocentenBeheer.jsp">Docenten Beheer</a></li>
+								<li><a href="Administrator/Stagebegeleidertoevoegen.jsp">Begeleider Beheer</a></li>
+				  				<li><a href="Administrator/CompetentiesBeheer.jsp">Competenties Beheer</a></li>
 				 			</ul>
 						</div>
 					</div>
