@@ -41,7 +41,7 @@ public class LeerlingToevoegenServlet extends HttpServlet {
 				request.setAttribute("lvmessage", error);
 			}
 		
-		response.sendRedirect("lijstLeerlingen.jsp");
+		response.sendRedirect("LeerlingenBeheer.jsp");
 	}
 }
 			

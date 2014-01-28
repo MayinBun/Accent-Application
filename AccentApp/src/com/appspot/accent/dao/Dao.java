@@ -9,6 +9,7 @@ import com.appspot.accent.model.Administrator;
 import com.appspot.accent.model.CompetentieItem;
 import com.appspot.accent.model.Docent;
 import com.appspot.accent.model.Leerling;
+import com.appspot.accent.model.Stagebegeleider;
 import com.appspot.accent.model.Todo;
 import com.appspot.accent.model.User;
 
@@ -78,6 +79,26 @@ public void removeAdministrator(long id) {
     }
   }
 
+public void createBegeleider(String username,String password){
+	synchronized(this){
+		EntityManager em = EMFService.get().createEntityManager();
+	    User newUser = new Stagebegeleider(username,password);
+	    em.persist(newUser);
+	    em.close();
+	}
+}
+
+public void removeBegeleider(long id) {
+    synchronized (this) {
+      EntityManager em = EMFService.get().createEntityManager();
+      Stagebegeleider s = em.find(Stagebegeleider.class, id);
+      em.remove(s);
+      em.close();
+    }
+  }
+
+
+
 public void createCompetentieItem(String omschrijving){
 	synchronized (this){
 		 EntityManager em = EMFService.get().createEntityManager();
@@ -97,17 +118,8 @@ public void removeCompetentieItem(long id){
 }
 
 
-/////////////////////////////// Create/Remove User classes //////////////////////////////////////////////////////////////////  
-  
-
-  public List<Todo> getTodos(String userId) {
-    EntityManager em = EMFService.get().createEntityManager();
-    Query q = em
-        .createQuery("select t from Todo t where t.author = :userId");
-    q.setParameter("userId", userId);
-    List<Todo> todos = q.getResultList();
-    return todos;
-  }
+/////////////////////////////// DAO Ophalen van DATA //////////////////////////////////////////////////////////////////  
+ 
   
   public List<User> getAlleLeerlingen() {
 	    EntityManager em = EMFService.get().createEntityManager();
@@ -130,6 +142,13 @@ public void removeCompetentieItem(long id){
 	    return admins;
 	  }
   
+  public List<User> getAlleBegeleiders() {
+	    EntityManager em = EMFService.get().createEntityManager();
+	    Query q = em.createQuery("select s from Stagebegeleider s");
+	    List<User> begeleiders = q.getResultList();
+	    return begeleiders;
+	  }
+  
   
   
   public List<CompetentieItem> getAlleCompetentieItems() {
@@ -137,26 +156,6 @@ public void removeCompetentieItem(long id){
 	    Query q = em.createQuery("select c from CompetentieItem c");
 	    List<CompetentieItem> items = q.getResultList();
 	    return items;
-	  }
-
-  public void remove(long id) {
-    EntityManager em = EMFService.get().createEntityManager();
-    try {
-      Todo todo = em.find(Todo.class, id);
-      em.remove(todo);
-    } finally {
-      em.close();
-    }
-  }
-  
-  public void finishTodo(long id, boolean state) {
-	    EntityManager em = EMFService.get().createEntityManager();
-	    try {
-	      Todo todo = em.find(Todo.class, id);
-	      todo.setFinished(state);
-	    } finally {
-	      em.close();
-	    }
 	  }
     
   

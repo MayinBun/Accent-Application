@@ -10,7 +10,7 @@
 <%@ page import="com.appspot.accent.dao.Dao"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%List<User> allUsers = Dao.INSTANCE.getAlleDocenten();%>
+<%List<User> allUsers = Dao.INSTANCE.getAlleBegeleiders();%>
 <link rel="stylesheet" href="/CSS/admin-style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://tablesorter.com/addons/pager/jquery.tablesorter.pager.js"></script>
@@ -21,7 +21,7 @@
 	<div id="wrapper-menu">
 		<div id ="menu">
 			<ul>
-		<li><a href="../Index.jsp">Home</a></li>
+				<li><a href="../Index.jsp">Home</a></li>
 				<li><a href="LeerlingenBeheer.jsp">Leerlingen Beheer</a></li>
 				<li><a href="DocentenBeheer.jsp">Docenten Beheer</a></li>
 				<li><a href="BegeleiderBeheer.jsp">Begeleider Beheer</a></li>
@@ -35,14 +35,14 @@
 			<div id="lineup">
 			
 
-				<p>${lvmessage}</p>		
+				<p>${message}</p>		
 			
 			
 <table id="table" >
   <tr>
       <th>Gebruiksnaam </th>
       <th>Wachtwoord</th>
-      <th>Tools</th>
+      <th>Verwijderen</th>
     </tr>
 
 <% for (User ci : allUsers) {%>
@@ -56,22 +56,22 @@
 </td>
 
 <td>
-<!-- Verwijderen van docenten -->
-<form style="display:inline" action="DocentVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
-<input type="image" src="../images/delete.png" height="25px" width="25px" >
+<!-- Verwijderen van Admins -->
+<form style="display:inline" action="StageBegeleiderVerwijderenServlet.do?id=<%=ci.getId()%>" method="post">
+<input type="image" src="../images/delete.png" height="25px" width="25px">
 </form>
 
 </td>
 <%} %>
 </tr>
 </table>
-
-<img src="../images/new.png" height="25px" width="25px" style="cursor: pointer; cursor: hand;" id="img" class="img"> Nieuwe Docent toevoegen
+<!-- Nieuwe Administrator toevoegen popup -->
+<img src="../images/new.png" height="25px" width="25px" style="cursor: pointer; cursor: hand;" id="img" class="img"> Nieuwe stagebegeleider toevoegen
 <div id="popup_box">
 	<div id="popcontainer">
 		<div id="inputbox">
-			<h3>Nieuwe docent toevoegen</h3>
-			<form style="display:inline" action="DocentToevoegenServlet.do" method="post" onsubmit="setTimeout('location.reload());">
+			<h3>Nieuwe begeleider toevoegen</h3>
+			<form style="display:inline" action="StagebegeleiderToevoegenServlet.do" method="post" onsubmit="setTimeout('location.reload());">
 			<input type="text" name="username" class="ltf" placeholder="gebruiksnaam"><br>
 			<input type="text" name="password" class="ltf" placeholder ="wachtwoord"><br>
 			<input type="button" id="button" name="enter" value="Toevoegen" style="float:left;" onclick="submit()">

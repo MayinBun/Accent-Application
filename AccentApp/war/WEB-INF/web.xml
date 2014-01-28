@@ -70,15 +70,23 @@
     <servlet-name>DocentToevoegenServlet</servlet-name>
     <url-pattern>/Administrator/DocentToevoegenServlet.do</url-pattern>
   </servlet-mapping>
-  <!-- 
-  notatie van de servlet die de stagebegeleider toevoegd  -->
+ 
     <servlet>
-      <servlet-name>StagebegeleidertoevoegenServlet</servlet-name>
-      <servlet-class>com.appspot.accent.controller.StagebegeleidertoevoegenServlet</servlet-class>
+      <servlet-name>StagebegeleiderToevoegenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.StagebegeleiderToevoegenServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>StagebegeleidertoevoegenServlet</servlet-name>
-    <url-pattern>/Administrator/StagebegeleidertoevoegenServlet.do</url-pattern>
+    <servlet-name>StagebegeleiderToevoegenServlet</servlet-name>
+    <url-pattern>/Administrator/StagebegeleiderToevoegenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+      <servlet-name>StagebegeleiderVerwijderenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.StagebegeleiderVerwijderenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StagebegeleiderVerwijderenServlet</servlet-name>
+    <url-pattern>/Administrator/StagebegeleiderVerwijderenServlet.do</url-pattern>
   </servlet-mapping>
   
     <servlet>

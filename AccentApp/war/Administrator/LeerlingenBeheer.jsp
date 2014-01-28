@@ -21,9 +21,9 @@
 		<div id ="menu">
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
-				<li><a href="lijstLeerlingen.jsp">Leerlingen Beheer</a></li>
+				<li><a href="LeerlingenBeheer.jsp">Leerlingen Beheer</a></li>
 				<li><a href="DocentenBeheer.jsp">Docenten Beheer</a></li>
-				<li><a href="Stagebegeleidertoevoegen.jsp">Begeleider Beheer</a></li>
+				<li><a href="BegeleiderBeheer.jsp">Begeleider Beheer</a></li>
 				<li><a href="AdminBeheer.jsp">Admin Beheer</a></li>
   				<li><a href="CompetentiesBeheer.jsp">Competenties Beheer </a></li>
  			</ul>

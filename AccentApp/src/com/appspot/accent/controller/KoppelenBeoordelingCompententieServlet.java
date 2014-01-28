@@ -1,5 +1,6 @@
 package com.appspot.accent.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ public class KoppelenBeoordelingCompententieServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException{
 		
 	}
-		protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException{
+		protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 			Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 			int curr=0;
 
@@ -40,6 +41,8 @@ public class KoppelenBeoordelingCompententieServlet extends HttpServlet{
 				
 				
 			}	
+			
+			res.sendRedirect("../Index.jsp");
 		
 		}
 }

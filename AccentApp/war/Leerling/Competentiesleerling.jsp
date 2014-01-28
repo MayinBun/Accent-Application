@@ -11,24 +11,25 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script>
-  </script>
   <link rel="stylesheet" href="/resources/demos/style.css">
 <script language="javascript">
 /* Functie om ervoor te zorgen dat de radio button groep dynamisch wordt aangemaakt.  */
 var curr=1 ;
 function addradio()
 {
-	
-    document.getElementById("my_div").innerHTML=document.getElementById("my_div").innerHTML+
+document.getElementById("my_div").innerHTML=document.getElementById("my_div").innerHTML+
 "<br><input type='radio' id='my"+curr+"'  value='1' name='my"+curr+"'>1 "+
 "<input type='radio' id='my"+curr+"' value='2' name='my"+curr+"'>2 "+
 "<input type='radio' id='my"+curr+"' value='3' name='my"+curr+"'>3 "+
 "<input type='radio' id='my"+curr+"' value='4' name='my"+curr+"'>4 "+"</br>"; 
   curr=curr+1;
 }	
-
-
+</script>
+<script>
+function myFunction()
+{
+alert("Beoordeling is verzonden !");
+}
 </script>
 
 <!-- wrapper (content + menu) -->
@@ -48,7 +49,7 @@ function addradio()
 		<div id="title"><h3>Te beoordelen Competenties:<h3> </div>
 			<% for( CompetentieItem ci : admin.getAlleCompetentieItems())
 					{ %>
-				<form action="KoppelenBeoordelingCompententieServlet.do?compid= <%=ci.getItemNaam()%>" method="POST">
+				<form action="KoppelenBeoordelingCompententieServlet.do" method="POST">
 			
 				
 						 	
@@ -74,7 +75,7 @@ function addradio()
 					
 			
 				
-			<div id="submitBeoordeling"><input type="submit" name="knop" id="knopcomp"value="Voer Door" /></div>
+			<div id="submitBeoordeling"><input type="submit" onclick="myFunction()" name="knop" id="knopcomp"value="Voer Door" /></div>
 				</form>
 			</div>
 		</div>
