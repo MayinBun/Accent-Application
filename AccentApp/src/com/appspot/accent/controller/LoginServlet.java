@@ -24,8 +24,8 @@ import com.appspot.accent.model.User;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static int errorLogin = 1;
-	static int correctLogin = 1;
+	static int errorLogin = 0;
+	static int correctLogin = 0;
     private ArrayList<User>users;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
