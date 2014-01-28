@@ -46,7 +46,9 @@
 <%=ci.getUsername()%>
 </td>
 <td>
-<input type="image" src="../images/new.png" height="25px" width="25px">
+<form action="KoppelLeerlingServlet.do?id=<%=ci.getId()%>" method="post">
+<input type="image" src="../images/new.png" height="25px" width="25px" onclick="submit()">
+</form>
 </td>
 <%} %>
 </tr>

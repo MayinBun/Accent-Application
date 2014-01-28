@@ -22,6 +22,7 @@
 								<li><a href="Administrator/lijstLeerlingen.jsp">Leerlingen Beheer</a></li>
 								<li><a href="Administrator/DocentenBeheer.jsp">Docenten Beheer</a></li>
 								<li><a href="Administrator/Stagebegeleidertoevoegen.jsp">Begeleider Beheer</a></li>
+								<li><a href="Administrator/AdminBeheer.jsp">Admin Beheer</a></li>
 				  				<li><a href="Administrator/CompetentiesBeheer.jsp">Competenties Beheer</a></li>
 				 			</ul>
 						</div>

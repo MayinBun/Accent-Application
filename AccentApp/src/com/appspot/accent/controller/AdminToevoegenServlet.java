@@ -3,7 +3,6 @@ import com.appspot.accent.dao.Dao;
 import com.appspot.accent.model.*;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,12 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class DocentToevoegenServlet extends HttpServlet {
+public class AdminToevoegenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,18 +21,19 @@ public class DocentToevoegenServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		
-		
-		if(!username.equals("")&&!password.equals("")){
-				Dao.INSTANCE.createDocent(username, password);
-				succes = "Docent succesvol toegevoegd!";
-				request.setAttribute("message", succes);
+		if(!username.equalsIgnoreCase("") && !password.equalsIgnoreCase("")){
+			Dao.INSTANCE.createAdministrator(username, password);
+			succes = "Administrator aangemaakt!";
+			request.setAttribute("message",succes);
 		}
-		else{error = "Velden mogen niet leeg zijn"; request.setAttribute("message", error);}
 		
-		request.getRequestDispatcher("DocentenBeheer.jsp").forward(request, response);
+		else{error = "Velden mogen niet leeg zijn!"; request.setAttribute("message", error);}
+		
+		request.getRequestDispatcher("AdminBeheer.jsp").forward(request, response);
+		
+		
 	}
 }
-			
 		
 	
 

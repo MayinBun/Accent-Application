@@ -43,6 +43,7 @@
     <url-pattern>/Administrator/LeerlingToevoegenServlet.do</url-pattern>
   </servlet-mapping>
   
+  
    <servlet>
       <servlet-name>LeerlingVerwijderenServlet</servlet-name>
       <servlet-class>com.appspot.accent.controller.LeerlingVerwijderenServlet</servlet-class>
@@ -50,6 +51,15 @@
   <servlet-mapping>
     <servlet-name>LeerlingVerwijderenServlet</servlet-name>
     <url-pattern>/Administrator/LeerlingVerwijderenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+      <servlet-name>AdminToevoegenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.AdminToevoegenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminToevoegenServlet</servlet-name>
+    <url-pattern>/Administrator/AdminToevoegenServlet.do</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -87,6 +97,24 @@
   <servlet-mapping>
     <servlet-name>CompetentiesVerwijderenServlet</servlet-name>
     <url-pattern>/Administrator/CompetentiesVerwijderenServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>KoppelLeerlingServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.KoppelLeerlingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KoppelLeerlingServlet</servlet-name>
+    <url-pattern>/Docent/KoppelLeerlingServlet.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+      <servlet-name>KoppelBeoordelingServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.KoppelenBeoordelingCompententieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KoppelBeoordelingServlet</servlet-name>
+    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServlet.do</url-pattern>
   </servlet-mapping>
   
   <listener>

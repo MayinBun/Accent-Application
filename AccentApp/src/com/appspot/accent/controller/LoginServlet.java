@@ -40,11 +40,11 @@ public class LoginServlet extends HttpServlet {
 		
 		Object obj = getServletContext().getAttribute("userList");
 		users = (ArrayList<User>) (obj);
-		List<User> leerlingen = Dao.INSTANCE.getAlleLeerlingen();
-		List<User> docenten = Dao.INSTANCE.getAlleDocenten();
+	
 		
 		//Checken of het een leerling is
 	if(inlogtype.equals("Leerling")){
+		List<User> leerlingen = Dao.INSTANCE.getAlleLeerlingen();
 		found = false;
 		for(User l : leerlingen){
 			
@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 		
 	}
 	else if(inlogtype.equals("Docent")){
-		
+		List<User> docenten = Dao.INSTANCE.getAlleDocenten();
 		found = false;
 		//Checken of het een docent is
 			

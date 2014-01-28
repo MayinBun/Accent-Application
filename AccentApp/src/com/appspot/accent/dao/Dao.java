@@ -96,6 +96,7 @@ public void removeCompetentieItem(long id){
 	}
 }
 
+
 /////////////////////////////// Create/Remove User classes //////////////////////////////////////////////////////////////////  
   
 
@@ -121,6 +122,15 @@ public void removeCompetentieItem(long id){
 	    List<User> docenten = q.getResultList();
 	    return docenten;
 	  }
+  
+  public List<User> getAlleAdmins() {
+	    EntityManager em = EMFService.get().createEntityManager();
+	    Query q = em.createQuery("select a from Administrator a");
+	    List<User> admins = q.getResultList();
+	    return admins;
+	  }
+  
+  
   
   public List<CompetentieItem> getAlleCompetentieItems() {
 	    EntityManager em = EMFService.get().createEntityManager();

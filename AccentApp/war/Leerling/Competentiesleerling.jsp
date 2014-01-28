@@ -10,10 +10,13 @@
 <%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+  </script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
 <script language="javascript">
 /* Functie om ervoor te zorgen dat de radio button groep dynamisch wordt aangemaakt.  */
-var curr=0 ;
+var curr=1 ;
 function addradio()
 {
 	
@@ -43,35 +46,23 @@ function addradio()
 		<div id ="content">
 			<div id ="lineup">
 		<div id="title"><h3>Te beoordelen Competenties:<h3> </div>
+			<% for( CompetentieItem ci : admin.getAlleCompetentieItems())
+					{ %>
+				<form action="KoppelenBeoordelingCompententieServlet.do?compid= <%=ci.getItemNaam()%>" method="POST">
 			
-				<form action="CompetentieWijzigenServlet.do" method="post">
-				 <p  id="selectedCompetentie" >
 				
 						 	
 					<!-- door het gebruik van een for loop doorloop je alle competenties , daaraan moet hij een slider + waarde hieraan meegeven , dit gebeurt nu alleen nog maar bij 
 					de eerste waarde uit de arraylist.  -->		
-					<% for( CompetentieItem ci : admin.getAlleCompetentieItems())
-					{ %>
 					
 					
-			<!-- 		<input type="radio"  name="beoordeling1">
-				1
-					<input type="radio"  name="beoordeling2">
-				2
-					<input type="radio"  name="beoordeling3">
-				3
-					<input type="radio"  name="beoordeling">
-				4	
 					
-					 -->
-					
-					<% System.out.println(ci);%>
-					 
+				
 					 <script>
 					 addradio();
 					 </script>
 					 
-				 <%=ci.getItemNaam()%> 
+			 <%=ci.getItemNaam()%>
 					 
 					<br></br>
 					<div id="radio" >
@@ -79,11 +70,12 @@ function addradio()
 						 </div>
 					<% } %>
 					
-					</p><br>
+					<br>
 					
-				</form>
+			
 				
 			<div id="submitBeoordeling"><input type="submit" name="knop" id="knopcomp"value="Voer Door" /></div>
+				</form>
 			</div>
 		</div>
 	</div>
