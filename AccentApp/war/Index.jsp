@@ -14,7 +14,7 @@
       <%List<User> Docenten = Dao.INSTANCE.getAlleDocenten();%>
       <%List<User> Stagebegeleider = Dao.INSTANCE.getAlleBegeleiders();%>
       <%List<User> Administrator = Dao.INSTANCE.getAlleAdmins(); %>
-    
+<!--     asdasdsad -->
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 
