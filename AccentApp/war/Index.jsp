@@ -7,7 +7,10 @@
       <%@ page import="com.appspot.accent.model.User"%>
       <%@ page import="com.appspot.accent.dao.Dao"%>
       <%@ page import="java.util.List" %>
-      <%List<User> leerlingen = Dao.INSTANCE.getAlleLeerlingen();%>
+      <%List<User> Leerlingen = Dao.INSTANCE.getAlleLeerlingen();%>
+      <%List<User> Docenten = Dao.INSTANCE.getAlleDocenten();%>
+      <%List<User> Stagebegeleider = Dao.INSTANCE.getAlleBegeleiders();%>
+      <%List<User> Administrator = Dao.INSTANCE.getAlleAdmins(); %>
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 
@@ -63,7 +66,9 @@
 					    </script>
 				
 					  
-					    <div id="visualization" style="width: 600px; height: 400px;"></div>
+					    <div id="grafiekpositie">
+					    <div id="visualization" style="width: 500px; height: 300px;"></div>
+					    </div>
 					    <br></br>
 					    <script type="text/javascript" src="//www.google.com/jsapi"></script>
 		   				 <script type="text/javascript">
@@ -77,8 +82,8 @@
 		   			     function drawVisualization() {
 		   			        var wrapper = new google.visualization.ChartWrapper({
 		   			          chartType: 'ColumnChart',
-		   			          dataTable: [['', 'Germany', 'USA', 'Brazil', 'Canada', 'France', 'RU'],
-		   			                      ['', 700, 300, 400, 500, 600, 800]],
+		   			          dataTable: [['', 'Leerling', 'Docent', 'StageBegeleider', 'Administrator'],
+		   			                      ['',  <%Leerlingen.size();%>, <%Docenten.size();%>,<%Stagebegeleider.size();%>, <%Administrator.size();%>]],
 		   			          options: {'title': 'Soorten Gebruikers'},
 		   			          containerId: 'visualization2'
 		   			        });
@@ -91,7 +96,9 @@
 					    </script>
 				
 					  
-					    <div id="visualization2" style="width: 600px; height: 400px;"></div>
+					  	<div id="grafiekpositie2">
+					    <div id="visualization2" style="width: 500px; height: 300px;"></div>
+					    </div>
 											</div>
 												
 											</div>

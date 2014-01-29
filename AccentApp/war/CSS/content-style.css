@@ -78,6 +78,7 @@ h4.username{
 
 #content{
 	width: 99%;
+	min-height: 450px;
 	height: calc(100% - 108px);
 	border:solid 3px; 
 	border-color:rgb(124,171,29);
@@ -359,4 +360,12 @@ h3#loggeduser{
 /* admin index kleine wijzigingen */
 #adminindex{
 	margin-left:2%;
+}
+/* De alinement van de grafieken @ admin */
+#grafiekpositie{
+	float:left;
+}
+#grafiekpositie2{
+	margin-top:-4%;
+	float:left;
 }
