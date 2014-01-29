@@ -70,6 +70,15 @@
     <servlet-name>DocentToevoegenServlet</servlet-name>
     <url-pattern>/Administrator/DocentToevoegenServlet.do</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+      <servlet-name>DocentVerwijderenServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.DocentVerwijderenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DocentVerwijderenServlet</servlet-name>
+    <url-pattern>/Administrator/DocentVerwijderenServlet.do</url-pattern>
+  </servlet-mapping>
  
     <servlet>
       <servlet-name>StagebegeleiderToevoegenServlet</servlet-name>

@@ -20,9 +20,11 @@ public class StagebegeleiderVerwijderenServlet extends HttpServlet {
 
 	protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		synchronized(this){
 		String id = request.getParameter("id");
 		Dao.INSTANCE.removeBegeleider(Long.parseLong(id));
 		request.getRequestDispatcher("BegeleiderBeheer.jsp").forward(request, response);
+		}
 	}
 }
 

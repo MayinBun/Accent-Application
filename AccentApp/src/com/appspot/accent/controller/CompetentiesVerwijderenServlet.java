@@ -23,9 +23,11 @@ public class CompetentiesVerwijderenServlet extends HttpServlet {
 
 	protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		synchronized(this){
 		String id = request.getParameter("id");
 		Dao.INSTANCE.removeCompetentieItem(Long.parseLong(id));
 		request.getRequestDispatcher("CompetentiesBeheer.jsp").forward(request, response);
+		}
 	
 	}
 }

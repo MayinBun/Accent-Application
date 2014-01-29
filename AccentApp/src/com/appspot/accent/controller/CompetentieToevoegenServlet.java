@@ -21,14 +21,16 @@ public class CompetentieToevoegenServlet extends HttpServlet {
 		
 		
 		if(!nwNaam.equalsIgnoreCase("")){
+			synchronized(this){
 			Dao.INSTANCE.createCompetentieItem(nwNaam);
 			succes = "Competentie aangemaakt!";
 			request.setAttribute("message",succes);
+			}
 		}
 		
 		else{error = "Omschrijving mag niet leeg zijn"; request.setAttribute("message", error);}
 		
-		response.sendRedirect("CompetentiesBeheer.jsp");
+		response.setHeader("Refresh", "0.2; URL=CompetentiesBeheer.jsp");
 		
 		
 	}

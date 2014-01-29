@@ -19,10 +19,11 @@ public class LeerlingVerwijderenServlet extends HttpServlet {
 	}
 
 	protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		synchronized(this){
 		String id = request.getParameter("id");
 		Dao.INSTANCE.removeLeerling(Long.parseLong(id));
 		request.getRequestDispatcher("LeerlingenBeheer.jsp").forward(request, response);
+		}
 	}
 }
 

@@ -26,15 +26,17 @@ public class DocentToevoegenServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		
-		
 		if(!username.equals("")&&!password.equals("")){
+			synchronized(this){
 				Dao.INSTANCE.createDocent(username, password);
 				succes = "Docent succesvol toegevoegd!";
 				request.setAttribute("message", succes);
+			}
 		}
 		else{error = "Velden mogen niet leeg zijn"; request.setAttribute("message", error);}
 		
-		request.getRequestDispatcher("DocentenBeheer.jsp").forward(request, response);
+		response.setHeader("Refresh", "0.2; URL=DocentenBeheer.jsp");
+		//request.getRequestDispatcher("DocentenBeheer.jsp").forward(request, response);
 	}
 }
 			

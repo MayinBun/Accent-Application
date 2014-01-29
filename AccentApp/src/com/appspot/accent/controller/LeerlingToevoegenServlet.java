@@ -34,14 +34,14 @@ public class LeerlingToevoegenServlet extends HttpServlet {
 				Dao.INSTANCE.createLeerling(username, password);
 				succes = "Leerling succesvol aangemaakt";
 				request.setAttribute("lvmessage", succes);
-			}
+				}
 			}
 			else{
 				error = "Velden mogen niet leeg zijn!";
 				request.setAttribute("lvmessage", error);
 			}
 		
-		response.sendRedirect("LeerlingenBeheer.jsp");
+			response.setHeader("Refresh", "0.2; URL=LeerlingenBeheer.jsp");
 	}
 }
 			

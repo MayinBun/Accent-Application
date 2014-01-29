@@ -28,13 +28,14 @@ public class StagebegeleiderToevoegenServlet extends HttpServlet {
 		
 		
 		if(!username.equals("")&&!password.equals("")){
-		
+			synchronized(this){
 				Dao.INSTANCE.createBegeleider(username, password);
 				succes = "Begeleider succesvol toegevoegd!";
 				request.setAttribute("message", succes);
+			}
 		}
 		else{error = "Velden mogen niet leeg zijn"; request.setAttribute("message", error);}
 		
-		request.getRequestDispatcher("BegeleiderBeheer.jsp").forward(request, response);
+		response.setHeader("Refresh", "0.2; URL=BegeleiderBeheer.jsp");
 	}
 }

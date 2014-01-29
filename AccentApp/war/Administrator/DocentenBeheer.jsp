@@ -36,7 +36,7 @@
 			<div id="lineup">
 			
 
-				<p>${lvmessage}</p>		
+				<p>${message}</p>		
 			
 			
 <table id="mytable" class="sortable" >

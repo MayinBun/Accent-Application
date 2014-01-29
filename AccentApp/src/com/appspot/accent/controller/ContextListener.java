@@ -28,11 +28,6 @@ public class ContextListener implements ServletContextListener {
     	Leerling l = new Leerling("ingo","ingo");
     	leerlingen.add(l);
     	
-    	Leerling l2 = new Leerling("Niels","Niels");
-    	leerlingen.add(l2);
-    	
-    	Leerling l3 = new Leerling("Bunyamin","Yildirim");
-    	leerlingen.add(l3);
     	
     	//Demo lijst
     	CompetentieItem c = new CompetentieItem("");
@@ -62,17 +57,7 @@ public class ContextListener implements ServletContextListener {
     	l.VoegItemToe(c9);
     	l.VoegItemToe(c10);
     	
-    	l2.VoegItemToe(c);
-    	l2.VoegItemToe(c1);
-    	l2.VoegItemToe(c3);
-    	l2.VoegItemToe(c4);
-    	l2.VoegItemToe(c10);
-    	l2.VoegItemToe(c5);
-    	
     	Dao.INSTANCE.createAdministrator("admin", "admin");
-    	Dao.INSTANCE.createLeerling("leerling", "leerling");
-    	Dao.INSTANCE.createDocent("docent", "docent");
-    	Dao.INSTANCE.createBegeleider("begeleider", "begeleider");
     	
     	//Context attributen
     	sce.getServletContext().setAttribute("admin", admin);
