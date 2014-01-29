@@ -22,7 +22,8 @@ public class KoppelenBeoordelingCompententieServletL extends HttpServlet{
 		protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 			Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 			int curr=0;
-
+			String intstring = "";
+			String compstring = "";
 				//leerling.getAlleCompetenties
 			ArrayList<CompetentieItem> Competentie =  admin.getAlleCompetentieItems();
 			for(CompetentieItem ci: Competentie ){
@@ -36,14 +37,17 @@ public class KoppelenBeoordelingCompententieServletL extends HttpServlet{
 		
 				Competentie comp = new Competentie(test,radiowaarde);
 				System.out.println(comp.getScore()+" "+comp.getCompetentieItem());
-		
+				intstring += comp.getScore() + ",";
+				compstring += "'" +comp.getCompetentieItem() + "'" + ",";
 			
 				}
 				
 				
 			}	
 			
-			res.sendRedirect("../Index.jsp");
+			getServletContext().setAttribute("valuel", intstring);
+			getServletContext().setAttribute("resultl", compstring);
+			req.getRequestDispatcher("Competentiesleerling.jsp").forward(req, res);
 		
 		}
 }

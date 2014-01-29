@@ -71,7 +71,7 @@
 <div id="popup_box">
 	<div id="popcontainer">
 		<div id="inputbox">
-			<h3>Nieuwe Competentie toevoegen</h3>
+			<h3>Nieuwe Item toevoegen</h3>
 			<form style="display:inline" action="CompetentieToevoegenServlet.do" method="post">
 			<input type="text" name="compnaam" class="ltf" placeholder="Beschrijving"><br>
 			<input type="button" id="button" name="enter" value="Toevoegen" style="float:left;" onclick="submit()">

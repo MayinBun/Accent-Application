@@ -41,9 +41,8 @@ public class KoppelenBeoordelingCompententieServletS extends HttpServlet{
 				compstring += "'" +comp.getCompetentieItem() + "'" + ",";
 				}	
 			}
-			getServletContext().setAttribute("valueb", intstring);
-			getServletContext().setAttribute("resultb", compstring);
-			req.setAttribute("compstring", "Hello");
+			getServletContext().setAttribute("values", intstring);
+			getServletContext().setAttribute("results", compstring);
 			System.out.print(intstring);
 			System.out.print(compstring);
 			req.getRequestDispatcher("Competentiesleerling.jsp").forward(req, res);

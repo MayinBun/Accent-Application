@@ -18,7 +18,10 @@
       <%List<User> Administrator = Dao.INSTANCE.getAlleAdmins(); %>
       <%Object obj = getServletContext().getAttribute("bcompetenties"); 
       	ArrayList<Competentie>bcomps = (ArrayList<Competentie>)obj;%>
-<!--     asdasdsad -->
+      <%String lresult = (String)getServletContext().getAttribute("resultl"); %>
+      <%String dresult = (String)getServletContext().getAttribute("resultd"); %>
+      <%String sresult = (String)getServletContext().getAttribute("results"); %>
+
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 
@@ -127,8 +130,78 @@
 						</div>
 					</div>
 					<div id="wrapper-content">
-						<div id="content"></div>
-						<!-- hierin kan nog content komen voor de index  -->
+						<div id="content">
+						<div id="title" style="margin-left:50px"><h3>Overzicht:<h3> </div>
+						<script type="text/javascript" src="//www.google.com/jsapi"></script>
+			   				<script type="text/javascript">
+			   				 
+			    			  google.load('visualization', '1', {packages: ['corechart']});
+			   				 </script>
+			   				 <%if (lresult != null){ %>
+			   				 <script type="text/javascript">
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			        	
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${resultl}],
+			   			                      ['', ${valuel}]],
+			   			          options: {'title': '${LoggedUser}','legend':'bottom'},
+			   			          legend:'bottom',
+			   			          containerId: 'visualization4'
+			   			          
+			   			        });
+			   			        
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						    <script type="text/javascript">
+			   				<%if (dresult != null){%>
+							
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${resultd}],
+			   			                      ['', ${valued}]],
+			   			          options: {'title': 'docent','legend':'bottom'},
+			   			          containerId: 'visualization5'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						    <script type="text/javascript">
+			   		
+							<%if(sresult != null){%>
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${results}],
+			   			                      ['', ${values}]],
+			   			          options: {'title': 'begeleider','legend':'bottom' 'pointSize: 5'},
+			   			          containerId: 'visualization6'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						    
+						    <div id="visualization4" style="width: 400px; height: 300px;margin-left:10px; margin-top:50px;  position:absolute;"></div>
+						    <div id="visualization5" style="width: 400px; height: 300px;margin-left:375px; margin-top:50px; position:absolute;"></div>
+							<div id="visualization6" style="width: 400px; height: 300px;margin-left:740px; margin-top:50px; position:absolute;"></div>
+						</div>
 					</div>
 				</div>
 				<%}%>
@@ -140,15 +213,79 @@
 						<div id ="menu">
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Docent/Mijnleerlingen.jsp">Mijn Leerlingen </a></li>
 								<li><a href="Docent/lijstLeerlingen.jsp">Alle Leerlingen </a></li>
+								<li><a href="Docent/Competentiesleerling.jsp">Leerling Beoordelen </a></li>
 				 			</ul>
 						</div>
 					</div>
 					<div id="wrapper-content">
 						<div id ="content">
-				 				<!-- hierin kan nog content komen voor de index  -->
-						
+						<div id="title" style="margin-left:50px"><h3>Overzicht:<h3> </div>
+				 				<script type="text/javascript" src="//www.google.com/jsapi"></script>
+				 			 	<script type="text/javascript">
+			    			  		google.load('visualization', '1', {packages: ['corechart']});
+			   				 	</script>
+			   				 	
+			   				 <script type="text/javascript">
+			   				 <%if(dresult != null){%>
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${resultd}],
+			   			                      ['', ${valued}]],
+			   			          options: {'title': '${LoggedUser}','legend':'bottom'},
+			   			          containerId: 'dvis1'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						    <script type="text/javascript">
+						    <% if (lresult != null){%>
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${resultl}],
+			   			                      ['', ${valuel}]],
+			   			          options: {'title': 'ingo','legend':'bottom'},
+			   			          
+			   			          containerId: 'dvis2'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						     <script type="text/javascript">
+						     <% if(sresult != null){%>
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${results}],
+			   			                      ['', ${values}]],
+			   			          options: {'title': 'begeleider','legend':'bottom'},
+			   			          containerId: 'dvis3'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						    
+						    
+						    <div id="dvis1" style="width: 400px; height: 300px; margin-left:10px; margin-top:50px;  position:absolute;"></div>
+						    <div id="dvis2" style="width: 400px; height: 300px; margin-left:375px; margin-top:50px; position:absolute;"></div>
+							<div id="dvis3" style="width: 400px; height: 300px; margin-left:740px; margin-top:50px; position:absolute;"></div>
 						</div>
 					</div>
 				</div>
@@ -167,31 +304,53 @@
 					</div>
 					<div id="wrapper-content">
 						<div id ="content">
-				 				<div id="title"><h3>Overzicht:<h3> </div><br>
+				 			<div id="title" style="margin-left:50px"><h3>Overzicht:<h3> </div>
 				 			<script type="text/javascript" src="//www.google.com/jsapi"></script>
 			   				<script type="text/javascript">
 			   				 
 			    			  google.load('visualization', '1', {packages: ['corechart']});
 			   				 </script>
 			   				 <script type="text/javascript">
-			   		
-
+			   			
+							<%if(sresult != null){%>
 			   			     function drawVisualization() {
 			   			        var wrapper = new google.visualization.ChartWrapper({
 			   			          chartType: 'ColumnChart',
-			   			          dataTable: [['', ${resultb}],
-			   			                      ['', ${valueb}]],
+			   			          dataTable: [['', ${results}],
+			   			                      ['', ${values}]],
 			   			          options: {'title': '${LoggedUser}'},
-			   			          containerId: 'visualization3'
+			   			          containerId: 'svis1'
 			   			        });
 			   			        wrapper.draw();
 			   			      }
 			   			      
 
 			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
+						    </script>
+						    
+						    <script type="text/javascript">
+						    <%if(lresult != null){%>
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${resultl}],
+			   			                      ['', ${valuel}]],
+			   			          options: {'title': 'ingo','legend':'bottom'},
+			   			          legend:'bottom',
+			   			          containerId: 'svis2'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+			   			      <%}%>
 						    </script>
 					
-						    <div id="visualization3" style="width: 500px; height: 300px;"></div>
+						    <div id="svis1" style="width: 500px; margin-top:50px; height: 300px;margin-left:10px; position:absolute;"></div>
+						    <div id="svis2" style="width: 500px; margin-top:50px; height: 300px;margin-left:375px;position:absolute;"></div>
+				
 						
 						</div>
 					</div>
