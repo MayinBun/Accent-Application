@@ -158,4 +158,47 @@ div#error{
     
 }
 
+@media handheld, only screen and (max-width: 1024px) 
+{
+   div#login-content{
+	width:auto;
+	float:left;
+	margin-left:-40%;
+	margin-right:auto;
+	margin-bottom:10px;
+	margin-top:20%;
+	padding:7px;
+	
+	}
+	
+	input[type=submit] {
+    padding: 6px 10px;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: #050505 0 -1px 0;
+    background-color: #459300;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px transparent;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin-left:-10%;
+    margin-top: 10%;
+   }
+   
+   div#error{
+	margin-left:28%;
+	position: absolute;
+	width:10%;
+	float:left;
+	padding:5px;
+	color: red;
+	margin-top:5%;
+	font-weight:bold;
+	}
+	
+}
+
 

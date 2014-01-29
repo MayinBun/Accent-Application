@@ -11,6 +11,10 @@ import javax.persistence.Transient;
 
 @Entity
 public class Leerling extends User {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Transient
 	ArrayList<CompetentieItem> leerlingItems;
 	

@@ -15,6 +15,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://tablesorter.com/addons/pager/jquery.tablesorter.pager.js"></script>
 <script src="/Scripts/admin-scripts.js"></script>
+<script src="/Scripts/sorttable.js"></script>
 
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
@@ -38,7 +39,7 @@
 				<p>${message}</p>		
 			
 			
-<table id="table" >
+<table id="mytable" class="sortable" >
   <tr>
       <th>Id</th>
       <th>Omschrijving</th>

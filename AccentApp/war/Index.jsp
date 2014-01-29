@@ -7,17 +7,22 @@
     <%@ page import="com.appspot.accent.model.Leerling" %>
     <%@ page import="com.appspot.accent.model.Docent" %>
     <%@ page import="com.appspot.accent.model.Stagebegeleider" %>
+    <%@ page import="com.appspot.accent.model.Competentie" %>
     <%@ page import="com.appspot.accent.controller.LoginServlet"%>
     <%@ page import="java.util.List" %>
+    <%@ page import="java.util.ArrayList" %>
     <%@ page import="com.appspot.accent.dao.Dao"%>
     <%List<User> Leerlingen = Dao.INSTANCE.getAlleLeerlingen();%>
       <%List<User> Docenten = Dao.INSTANCE.getAlleDocenten();%>
       <%List<User> Stagebegeleider = Dao.INSTANCE.getAlleBegeleiders();%>
       <%List<User> Administrator = Dao.INSTANCE.getAlleAdmins(); %>
+      <%Object obj = getServletContext().getAttribute("bcompetenties"); 
+      	ArrayList<Competentie>bcomps = (ArrayList<Competentie>)obj;%>
 <!--     asdasdsad -->
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 
+<link rel="stylesheet" type="text/css" href="../CSS/content-style.css">
 <%User user =(User)request.getSession().getAttribute("userobject");%>
 				<% if(user instanceof Administrator){ %>			
 				<!-- wrapper (content + menu) -->
@@ -78,19 +83,17 @@
 			   				 </script>
 			   				 <script type="text/javascript">
 			   		
-			   		      
 
 			   			     function drawVisualization() {
 			   			        var wrapper = new google.visualization.ChartWrapper({
 			   			          chartType: 'ColumnChart',
 			   			          dataTable: [['', 'Leerling', 'Docent', 'StageBegeleider', 'Administrator'],
-			   			                      ['',  <%Leerlingen.size();%>, <%Docenten.size();%>,<%Stagebegeleider.size();%>, <%Administrator.size();%>]],
+			   			                      ['',  <%=Leerlingen.size() %>,<%=Docenten.size() %>,<%=Stagebegeleider.size() %>,<%=Administrator.size() %>]],
 			   			          options: {'title': 'Soorten Gebruikers'},
 			   			          containerId: 'visualization2'
 			   			        });
 			   			        wrapper.draw();
 			   			      }
-			   			      
 			   			      
 
 			   			      google.setOnLoadCallback(drawVisualization);
@@ -159,13 +162,36 @@
 							<ul>
 							<li><a href="Index.jsp">Home</a></li>
 								<li><a href="Stagebegeleider/Competentiesleerling.jsp">Competenties invullen </a></li>
-								<li><a href="Stagebegeleider/Competentiesoverzicht.jsp">Voortgang</a></li>
 				 			</ul>
 						</div>
 					</div>
 					<div id="wrapper-content">
 						<div id ="content">
-				 				<!-- hierin kan nog content komen voor de index  -->
+				 				<div id="title"><h3>Overzicht:<h3> </div><br>
+				 			<script type="text/javascript" src="//www.google.com/jsapi"></script>
+			   				<script type="text/javascript">
+			   				 
+			    			  google.load('visualization', '1', {packages: ['corechart']});
+			   				 </script>
+			   				 <script type="text/javascript">
+			   		
+
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', ${resultb}],
+			   			                      ['', ${valueb}]],
+			   			          options: {'title': '${LoggedUser}'},
+			   			          containerId: 'visualization3'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+						    </script>
+					
+						    <div id="visualization3" style="width: 500px; height: 300px;"></div>
 						
 						</div>
 					</div>

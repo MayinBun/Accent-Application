@@ -131,7 +131,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>KoppelBeoordelingServletD</servlet-name>
-    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServletD.do</url-pattern>
+    <url-pattern>/Docent/KoppelenBeoordelingCompententieServletD.do</url-pattern>
   </servlet-mapping>
     <!-- Begeleider  -->
   <servlet>
@@ -140,7 +140,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>KoppelBeoordelingServletS</servlet-name>
-    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServletS.do</url-pattern>
+    <url-pattern>/Stagebegeleider/KoppelenBeoordelingCompententieServletS.do</url-pattern>
   </servlet-mapping>
   
   <listener>

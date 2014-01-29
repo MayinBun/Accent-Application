@@ -20,6 +20,7 @@
 	<div id="header-logo">
 		<img id="accentlogo" src="images/accentlogo.png">
 	</div>
+	
 	<div id="header-banner">
 		<i class="breakline"></i>
 			<div class="userinfo">

@@ -5,8 +5,9 @@
 <%@ page import="com.appspot.accent.model.Leerling" %>
 <%@ page import="java.util.ArrayList" %>
 
+
 <jsp:include page="../pageHeader.jsp">
-	<jsp:param name="titel" value="Competentie toevoegen" />
+	<jsp:param name="titel" value="CompetentiesLeerling" />
 </jsp:include> 
 <%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <%Object obj = getServletContext().getAttribute("leerlingen"); 
@@ -43,7 +44,6 @@ alert("Beoordeling is verzonden !");
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
   				<li><a href="Competentiesleerling.jsp">Competenties invullen</a></li>
-  				<li><a href="Competentiesoverzicht.jsp">Voortgang</a></li>
  			</ul>
 		</div>
 	</div> 
@@ -57,19 +57,26 @@ alert("Beoordeling is verzonden !");
 			<%for (Leerling l : leerlingen){ %>
 		<option value="<%=l.getUsername()%>">
         <%=l.getUsername()%>
-   		 </option>
-   		 </select>
-   		 <%for(CompetentieItem cti : l.getLeerlingItems()){ %>
-   		 
-						
+   		</option>
+   		 </select>	
+   		 <%} %>
+   		 <%for(CompetentieItem ci : admin.getAlleCompetentieItems()) {%>
+   		 	<form action="KoppelenBeoordelingCompententieServletS.do" method="POST">
+   		 			<script>
+					 addradio();
+					 </script>
 					 
-			 <%=cti.getItemNaam()%>
-	
-					<% }}%>
-				
+					  <%=ci.getItemNaam()%>
+					 
+					<br></br>
+					<div id="radio" >
+						 <div id="my_div"></div>
+						 </div>
+   		 
+   		 
+   		<%}%>
+   		
 					
-					
-			
 				
 			<div id="submitBeoordeling"><input type="submit" onclick="myFunction()" name="knop" id="knopcomp"value="Voer Door" /></div>
 			</div>

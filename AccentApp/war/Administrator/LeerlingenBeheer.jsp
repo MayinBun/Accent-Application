@@ -13,8 +13,10 @@
 <%List<User> allUsers = Dao.INSTANCE.getAlleLeerlingen();%>
 <link rel="stylesheet" href="/CSS/admin-style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://tablesorter.com/addons/pager/jquery.tablesorter.pager.js"></script>
 <script src="/Scripts/admin-scripts.js"></script>
-<script src="../Scripts/sorttable.js"></script>
+<script src="/Scripts/sorttable.js"></script>
 <!-- wrapper (content + menu) -->
 <div class="wrapper">
 	<div id="wrapper-menu">
