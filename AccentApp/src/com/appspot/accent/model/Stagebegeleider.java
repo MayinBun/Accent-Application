@@ -4,39 +4,28 @@ import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Stagebegeleider extends User {
-	private ArrayList<Competentie> mijnCompetenties; 
+	@Transient
+	private ArrayList<CompetentieItem> begeleiderItems; 
 	
 	public Stagebegeleider(String username,String password){
-		// voor het inladen van het standaard account 
 		super(username,password);
+		begeleiderItems = new ArrayList<CompetentieItem>();
 	}
 	
-	public String CompetentieLijst(){
-		
-		String s = null;
-		for (Competentie c : mijnCompetenties){
-			
-			s = c.getCompetentieItem() + c.getScore();
-		}
-		return s;
-	}
-	public String toString(){
-		return super.getUsername() + super.getPassword();
-	}
-	public ArrayList<Competentie> getCompetentiesArray(){
-		// om de arraylist op te halen.
-		if(mijnCompetenties == null){
-			mijnCompetenties = new ArrayList<Competentie>();
-		}
-		return mijnCompetenties;
+	@Transient
+	public void voegBegeleiderItem(CompetentieItem ci){
+		begeleiderItems.add(ci);
 	}
 	
-	public Long getId(){
-		return id;
+	@Transient
+	public ArrayList<CompetentieItem> getBegeleiderItems(){
+		return begeleiderItems;
 	}
+
 }
 
 

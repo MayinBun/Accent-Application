@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.appspot.accent.dao.Dao;
 import com.appspot.accent.model.Administrator;
 import com.appspot.accent.model.CompetentieItem;
 import com.appspot.accent.model.Docent;
@@ -18,11 +19,17 @@ public class ContextListener implements ServletContextListener {
 
 	
 	private ArrayList<User> users = new ArrayList<User>();
+	private ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();
     public void contextInitialized(ServletContextEvent sce) {
     	
     	Administrator admin = new Administrator("admin","admin");
     	users.add(admin);
     	
+    	Leerling l = new Leerling("ingo","ingo");
+    	leerlingen.add(l);
+    	
+    	Leerling l2 = new Leerling("Niels","Niels");
+    	leerlingen.add(l2);
     	
     	//Demo lijst
     	CompetentieItem c = new CompetentieItem("");
@@ -31,6 +38,13 @@ public class ContextListener implements ServletContextListener {
     	CompetentieItem c3 = new CompetentieItem("3. Klantvriendelijk en dienstverlenend");
     	CompetentieItem c4 = new CompetentieItem("4. Instructies en procedures opvolgen	");
     	CompetentieItem c5 = new CompetentieItem("5. Plannen en organiseren");
+    	
+    	CompetentieItem c6 = new CompetentieItem("1. Is enthousiast");
+    	CompetentieItem c7 = new CompetentieItem("2. Kan goed luisteren");
+    	CompetentieItem c8 = new CompetentieItem("3. Klantvriendelijk en dienstverlenend");
+    	CompetentieItem c9 = new CompetentieItem("4. Instructies en procedures opvolgen	");
+    	CompetentieItem c10 = new CompetentieItem("5. Plannen en organiseren");
+    	
     	admin.createCompetentie(c);
     	admin.createCompetentie(c1);
     	admin.createCompetentie(c2);
@@ -38,9 +52,27 @@ public class ContextListener implements ServletContextListener {
     	admin.createCompetentie(c4);
     	admin.createCompetentie(c5);
     	
+    	l.VoegItemToe(c);
+    	l.VoegItemToe(c6);
+    	l.VoegItemToe(c7);
+    	l.VoegItemToe(c8);
+    	l.VoegItemToe(c9);
+    	l.VoegItemToe(c10);
+    	
+    	l2.VoegItemToe(c);
+    	l2.VoegItemToe(c);
+    	l2.VoegItemToe(c);
+    	l2.VoegItemToe(c);
+    	
+    	Dao.INSTANCE.createAdministrator("admin", "admin");
+    	Dao.INSTANCE.createLeerling("leerling", "leerling");
+    	Dao.INSTANCE.createDocent("docent", "docent");
+    	Dao.INSTANCE.createBegeleider("begeleider", "begeleider");
+    	
     	//Context attributen
     	sce.getServletContext().setAttribute("admin", admin);
     	sce.getServletContext().setAttribute("userList", users);
+    	sce.getServletContext().setAttribute("leerlingen", leerlingen);
     }
 
 	

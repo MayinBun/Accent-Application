@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 		boolean found = false;
 		
 		Object obj = getServletContext().getAttribute("userList");
+		Object adminobj = getServletContext().getAttribute("admin");
 		users = (ArrayList<User>) (obj);
 	
 		
@@ -90,10 +91,12 @@ public class LoginServlet extends HttpServlet {
 			}
 	}
 	else if(inlogtype.equals("Stagebegeleider")){		
+		List<User> begeleiders = Dao.INSTANCE.getAlleBegeleiders();
 		found = false;
-			for(User s : users){
-				if(s.getUsername().equalsIgnoreCase(username) && s.getPassword().equalsIgnoreCase(password) && s instanceof Stagebegeleider){
+			for(User s : begeleiders){
+				if(s.getUsername().equalsIgnoreCase(username) && s.getPassword().equalsIgnoreCase(password)){
 				response.addCookie(new Cookie("cUS",username));
+				request.getSession().setAttribute( "userobject", s);
 				logger.info("Ingelogd als Stagebegeleider"); 
 				found = true;
 				break;

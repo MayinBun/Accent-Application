@@ -4,6 +4,10 @@
     <%@ page import="com.appspot.accent.controller.SessionCounterListener"%>
      <%@ page import="com.appspot.accent.controller.LoginServlet"%>
       <%@ page import="com.appspot.accent.model.Stagebegeleider"%>
+      <%@ page import="com.appspot.accent.model.User"%>
+      <%@ page import="com.appspot.accent.dao.Dao"%>
+      <%@ page import="java.util.List" %>
+      <%List<User> leerlingen = Dao.INSTANCE.getAlleLeerlingen();%>
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 

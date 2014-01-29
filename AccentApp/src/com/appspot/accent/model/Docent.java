@@ -13,18 +13,38 @@ public class Docent extends User{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Transient
+	private ArrayList<CompetentieItem> docentItems;
 	
 	@Transient
 	private ArrayList<Leerling> mijnLeerlingen;
-	
+		
 	public Docent(String username,String password){
 		super(username,password);
-		mijnLeerlingen = new ArrayList<Leerling>();
+		docentItems = new ArrayList<CompetentieItem>();
 	}
 	
 	@Transient
-	public void voegLeerlingToe(Leerling l){
+	public void VoegDocentItem(CompetentieItem ci){
+		docentItems.add(ci);
+	}
+	
+	@Transient
+	public ArrayList<CompetentieItem> getDocentItems(){
+		return docentItems;
+	}
+	
+	@Transient
+	public void voegLeerling(Leerling l){
 		mijnLeerlingen.add(l);
 	}
+	
+	@Transient
+	public ArrayList<Leerling> getDocentLeerlingen(){
+		return mijnLeerlingen;
+	}
+	
+	
+	
 
 }
