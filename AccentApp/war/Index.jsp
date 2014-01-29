@@ -88,8 +88,8 @@
 						<div id ="menu">
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Docent/Mijnleerlingen.jsp">Mijn Leerlingen </a></li>
 								<li><a href="Docent/lijstLeerlingen.jsp">Alle Leerlingen </a></li>
+				 				<li><a href="Leerlingbeoordelen.jsp">Leerling Beoordelen </a></li>
 				 			</ul>
 						</div>
 					</div>
