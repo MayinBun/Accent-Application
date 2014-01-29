@@ -60,13 +60,13 @@ setInterval(function(){$("#error").fadeToggle();}, 2000);
 	<div id ="slider-content">
 	<div id="slideshow">
 	<div>
-   <img src="http://girlslivee.webklik.nl/user_files/2009_05/50180/School.SchoolisCool.SC1004.1.92x3.29.7051.jpg"width="240" height="240">
+   <img src="http://girlslivee.webklik.nl/user_files/2009_05/50180/School.SchoolisCool.SC1004.1.92x3.29.7051.jpg"width="200" height="200">
    </div>
    <div>
-  <img src="http://www.ahshawkeye.com/uploads/3/8/6/2/3862975/7237488_orig.jpg"width="240" height="240">
+  <img src="http://www.ahshawkeye.com/uploads/3/8/6/2/3862975/7237488_orig.jpg"width="200" height="200">
    </div>
    <div>
-      <img src="http://nlschoolistanbul.org/wp-content/uploads/2010/05/school-kids.gif"width="240" height="240">
+      <img src="http://nlschoolistanbul.org/wp-content/uploads/2010/05/school-kids.gif"width="200" height="200">
    </div>
 	
 	</div>
