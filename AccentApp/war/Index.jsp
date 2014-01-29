@@ -8,6 +8,13 @@
     <%@ page import="com.appspot.accent.model.Docent" %>
     <%@ page import="com.appspot.accent.model.Stagebegeleider" %>
     <%@ page import="com.appspot.accent.controller.LoginServlet"%>
+    <%@ page import="java.util.List" %>
+    <%@ page import="com.appspot.accent.dao.Dao"%>
+    <%List<User> Leerlingen = Dao.INSTANCE.getAlleLeerlingen();%>
+      <%List<User> Docenten = Dao.INSTANCE.getAlleDocenten();%>
+      <%List<User> Stagebegeleider = Dao.INSTANCE.getAlleBegeleiders();%>
+      <%List<User> Administrator = Dao.INSTANCE.getAlleAdmins(); %>
+    
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 
@@ -31,27 +38,69 @@
 						<div id ="content">
 						<div id = "adminindex">
 						<div id="title"><h3>Dashboard:<h3> </div><br>
-						<script type="text/javascript" src="//www.google.com/jsapi"></script>
-						<script type="text/javascript">google.load('visualization', '1', {packages: ['corechart']});</script>
-						 <script type="text/javascript">
-					      function drawVisualization() {
-					        // Create and populate the data table.
-					        var data = google.visualization.arrayToDataTable([
-					          ['logins', 'aantal'],
-					          ['Succesvol', <%= LoginServlet.getCorrectLogin() %>],
-					          ['Niet succesvol', <%= LoginServlet.getErrorLogin() %>],
-					       
-					        ]);
-					      // test
-					        // Create and draw the visualization.
-					        new google.visualization.PieChart(document.getElementById('visualization')).
-					            draw(data, {title:"Overzicht inlogpogingen" ,is3D: true, colors:['#28e351','#e00e41']});
-					      }
-					      
+						
+							<!-- Google Pie chart 		 -->
+							 <script type="text/javascript" src="//www.google.com/jsapi"></script>
+			   				 <script type="text/javascript">
+			   				 
+			    			  google.load('visualization', '1', {packages: ['corechart']});
+			   				 </script>
+			   				 <script type="text/javascript">
+			   		
+			   		      
+
+						      function drawVisualization() {
+						        // Create and populate the data table.
+						        var data = google.visualization.arrayToDataTable([
+						          ['logins', 'aantal'],
+						          ['Succesvol', <%= LoginServlet.getCorrectLogin() %>],
+						          ['Niet succesvol', <%= LoginServlet.getErrorLogin() %>],
+						       
+						        ]);
+						      
+						        // Create and draw the visualization.
+						        new google.visualization.PieChart(document.getElementById('visualization')).
+						            draw(data, {title:"Overzicht inlogpogingen" ,is3D: true, colors:['#28e351','#e00e41']});
+						      }
+
+						      google.setOnLoadCallback(drawVisualization);
+						    </script>
 					
-					      google.setOnLoadCallback(drawVisualization);
-					    </script>
-							 <div id="visualization" style="width: 500px; height: 300px;"></div>				 
+						  
+						    <div id="grafiekpositie">
+						    <div id="visualization" style="width: 500px; height: 300px;"></div>
+						    </div>
+						    <br></br>
+						    <script type="text/javascript" src="//www.google.com/jsapi"></script>
+			   				 <script type="text/javascript">
+			   				 
+			    			  google.load('visualization', '1', {packages: ['corechart']});
+			   				 </script>
+			   				 <script type="text/javascript">
+			   		
+			   		      
+
+			   			     function drawVisualization() {
+			   			        var wrapper = new google.visualization.ChartWrapper({
+			   			          chartType: 'ColumnChart',
+			   			          dataTable: [['', 'Leerling', 'Docent', 'StageBegeleider', 'Administrator'],
+			   			                      ['',  <%Leerlingen.size();%>, <%Docenten.size();%>,<%Stagebegeleider.size();%>, <%Administrator.size();%>]],
+			   			          options: {'title': 'Soorten Gebruikers'},
+			   			          containerId: 'visualization2'
+			   			        });
+			   			        wrapper.draw();
+			   			      }
+			   			      
+			   			      
+
+			   			      google.setOnLoadCallback(drawVisualization);
+						    </script>
+					
+						  
+						  	<div id="grafiekpositie2">
+						    <div id="visualization2" style="width: 500px; height: 300px;"></div>
+						    </div>
+				 
 						</div>
 							
 						</div>
