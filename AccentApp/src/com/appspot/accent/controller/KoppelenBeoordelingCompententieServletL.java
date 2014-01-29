@@ -13,7 +13,7 @@ import com.appspot.accent.model.Competentie;
 import com.appspot.accent.model.CompetentieItem;
 import com.appspot.accent.model.Docent;
 
-public class KoppelenBeoordelingCompententieServlet extends HttpServlet{
+public class KoppelenBeoordelingCompententieServletL extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException{
@@ -23,6 +23,7 @@ public class KoppelenBeoordelingCompententieServlet extends HttpServlet{
 			Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
 			int curr=0;
 
+				//leerling.getAlleCompetenties
 			ArrayList<CompetentieItem> Competentie =  admin.getAlleCompetentieItems();
 			for(CompetentieItem ci: Competentie ){
 				if (ci.getItemNaam()!=""){

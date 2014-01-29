@@ -42,14 +42,14 @@ alert("Beoordeling is verzonden !");
   				<li><a href="Competentiesoverzicht.jsp">Voortgang</a></li>
  			</ul>
 		</div>
-	</div>
+	</div> 
 	<div id="wrapper-content">
 		<div id ="content">
 			<div id ="lineup">
-		<div id="title"><h3>Te beoordelen Competenties:<h3> </div>
+		<div id="title"><h3>Te beoordelen punten:<h3> </div>
 			<% for( CompetentieItem ci : admin.getAlleCompetentieItems())
 					{ %>
-				<form action="KoppelenBeoordelingCompententieServlet.do" method="POST">
+				<form action="KoppelenBeoordelingCompententieServletL.do" method="POST">
 			
 				
 						 	

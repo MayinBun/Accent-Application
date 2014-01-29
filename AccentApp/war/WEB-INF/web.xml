@@ -115,14 +115,32 @@
     <servlet-name>KoppelLeerlingServlet</servlet-name>
     <url-pattern>/Docent/KoppelLeerlingServlet.do</url-pattern>
   </servlet-mapping>
-  
+    <!-- Leerling  -->
    <servlet>
-      <servlet-name>KoppelBeoordelingServlet</servlet-name>
-      <servlet-class>com.appspot.accent.controller.KoppelenBeoordelingCompententieServlet</servlet-class>
+      <servlet-name>KoppelBeoordelingServletL</servlet-name>
+      <servlet-class>com.appspot.accent.controller.KoppelenBeoordelingCompententieServletL</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>KoppelBeoordelingServlet</servlet-name>
-    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServlet.do</url-pattern>
+    <servlet-name>KoppelBeoordelingServletL</servlet-name>
+    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServletL.do</url-pattern>
+  </servlet-mapping>
+  <!-- Docent  -->
+  <servlet>
+      <servlet-name>KoppelBeoordelingServletD</servlet-name>
+      <servlet-class>com.appspot.accent.controller.KoppelenBeoordelingCompententieServletD</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KoppelBeoordelingServletD</servlet-name>
+    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServletD.do</url-pattern>
+  </servlet-mapping>
+    <!-- Begeleider  -->
+  <servlet>
+      <servlet-name>KoppelBeoordelingServletS</servlet-name>
+      <servlet-class>com.appspot.accent.controller.KoppelenBeoordelingCompententieServletS</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KoppelBeoordelingServletS</servlet-name>
+    <url-pattern>/Leerling/KoppelenBeoordelingCompententieServletS.do</url-pattern>
   </servlet-mapping>
   
   <listener>
