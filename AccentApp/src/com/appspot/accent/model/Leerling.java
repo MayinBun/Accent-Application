@@ -12,10 +12,11 @@ import javax.persistence.Transient;
 @Entity
 public class Leerling extends User {
 	@Transient
-	ArrayList<CompetentieItem> leerlingItems = new ArrayList<CompetentieItem>();
+	ArrayList<CompetentieItem> leerlingItems;
 	
 	public Leerling(String username,String password){
 		super(username,password);
+		leerlingItems = new ArrayList<CompetentieItem>();
 	}
 	
 	@Transient

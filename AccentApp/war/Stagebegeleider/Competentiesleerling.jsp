@@ -53,41 +53,25 @@ alert("Beoordeling is verzonden !");
 		<div id="title"><h3>Te beoordelen punten:<h3> </div>
 		
 		<select id="leerlingen">
-		<%for (Leerling l : leerlingen){ %>
+		
+			<%for (Leerling l : leerlingen){ %>
 		<option value="<%=l.getUsername()%>">
         <%=l.getUsername()%>
    		 </option>
-			<% for( CompetentieItem ci : l.getLeerlingItems())
-					{ %>
-					</select>
-				<form action="KoppelenBeoordelingCompententieServletL.do" method="POST">
-			
-				
-						 	
-					<!-- door het gebruik van een for loop doorloop je alle competenties , daaraan moet hij een slider + waarde hieraan meegeven , dit gebeurt nu alleen nog maar bij 
-					de eerste waarde uit de arraylist.  -->		
-					
-					
-					
-				
-					 <script>
-					 addradio();
-					 </script>
+   		 </select>
+   		 <%for(CompetentieItem cti : l.getLeerlingItems()){ %>
+   		 
+						
 					 
-			 <%=ci.getItemNaam()%>
+			 <%=cti.getItemNaam()%>
 	
-					<br></br>
-					<div id="radio" >
-						 <div id="my_div"></div>
-						 </div>
 					<% }}%>
+				
 					
-					<br>
 					
 			
 				
 			<div id="submitBeoordeling"><input type="submit" onclick="myFunction()" name="knop" id="knopcomp"value="Voer Door" /></div>
-				</form>
 			</div>
 		</div>
 	</div>
