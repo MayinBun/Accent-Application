@@ -2,28 +2,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="com.appspot.accent.controller.SessionCounterListener"%>
-    <%@ page import="com.appspot.accent.model.Administrator" %>
-    <%@ page import="com.appspot.accent.model.User" %>
-    <%@ page import="com.appspot.accent.model.Leerling" %>
-    <%@ page import="com.appspot.accent.model.Docent" %>
-    <%@ page import="com.appspot.accent.model.Stagebegeleider" %>
-    <%@ page import="com.appspot.accent.controller.LoginServlet"%>
+     <%@ page import="com.appspot.accent.controller.LoginServlet"%>
+      <%@ page import="com.appspot.accent.model.Stagebegeleider"%>
 <jsp:include page="IndexHeader.jsp">
 	<jsp:param name="titel" value="Homepage" />
 </jsp:include> 
-<%User user =(User)request.getSession().getAttribute("userobject");%>
-				<% if(user instanceof Administrator){ %>			
+
+			<%String user = (String)request.getSession().getAttribute("type");%>
+				<% if(user.equalsIgnoreCase("Admin")){ %>			
 				<!-- wrapper (content + menu) -->
 				<div class="wrapper">
 					<div id="wrapper-menu">
 						<div id ="menu">
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Administrator/LeerlingenBeheer.jsp">Leerlingen Beheer</a></li>
-								<li><a href="Administrator/DocentenBeheer.jsp">Docenten Beheer</a></li>
-								<li><a href="Administrator/BegeleiderBeheer.jsp">Begeleider Beheer</a></li>
-								<li><a href="Administrator/AdminBeheer.jsp">Admin Beheer</a></li>
-				  				<li><a href="Administrator/CompetentiesBeheer.jsp">Competenties Beheer</a></li>
+								<li><a href="Administrator/Leerlingtoevoegen.jsp">Leerling toevoegen</a></li>
+								<li><a href="Administrator/Docenttoevoegen.jsp">Docent toevoegen</a></li>
+								<li><a href="Administrator/Stagebegeleidertoevoegen.jsp">Begeleider toevoegen</a></li>
+				  				<li><a href="Administrator/Competentiestoevoegen.jsp">Competentie toevoegen </a></li>
+				  				<li><a href="Administrator/Competentieswijzigen.jsp">Competentie wijzigen</a></li>
+				  				<li><a href="Administrator/Competentiesverwijderen.jsp">Competentie verwijderen</a></li>
 				 			</ul>
 						</div>
 					</div>
@@ -31,9 +29,18 @@
 						<div id ="content">
 						<div id = "adminindex">
 						<div id="title"><h3>Dashboard:<h3> </div><br>
-						<script type="text/javascript" src="//www.google.com/jsapi"></script>
-						<script type="text/javascript">google.load('visualization', '1', {packages: ['corechart']});</script>
-						 <script type="text/javascript">
+						
+						
+					<!-- Google Pie chart 		 -->
+						 <script type="text/javascript" src="//www.google.com/jsapi"></script>
+		   				 <script type="text/javascript">
+		   				 
+		    			  google.load('visualization', '1', {packages: ['corechart']});
+		   				 </script>
+		   				 <script type="text/javascript">
+		   		
+		   		      
+
 					      function drawVisualization() {
 					        // Create and populate the data table.
 					        var data = google.visualization.arrayToDataTable([
@@ -42,27 +49,56 @@
 					          ['Niet succesvol', <%= LoginServlet.getErrorLogin() %>],
 					       
 					        ]);
-					      // test
+					      
 					        // Create and draw the visualization.
 					        new google.visualization.PieChart(document.getElementById('visualization')).
 					            draw(data, {title:"Overzicht inlogpogingen" ,is3D: true, colors:['#28e351','#e00e41']});
 					      }
-					      
-					
+
 					      google.setOnLoadCallback(drawVisualization);
 					    </script>
-							 <div id="visualization" style="width: 500px; height: 300px;"></div>				 
-						</div>
-							
-						</div>
-					
-					</div>
-				</div>
-			<%}%>
+				
+					  
+					    <div id="visualization" style="width: 600px; height: 400px;"></div>
+					    <br></br>
+					    <script type="text/javascript" src="//www.google.com/jsapi"></script>
+		   				 <script type="text/javascript">
+		   				 
+		    			  google.load('visualization', '1', {packages: ['corechart']});
+		   				 </script>
+		   				 <script type="text/javascript">
+		   		
+		   		      
+
+		   			     function drawVisualization() {
+		   			        var wrapper = new google.visualization.ChartWrapper({
+		   			          chartType: 'ColumnChart',
+		   			          dataTable: [['', 'Germany', 'USA', 'Brazil', 'Canada', 'France', 'RU'],
+		   			                      ['', 700, 300, 400, 500, 600, 800]],
+		   			          options: {'title': 'Soorten Gebruikers'},
+		   			          containerId: 'visualization2'
+		   			        });
+		   			        wrapper.draw();
+		   			      }
+		   			      
+		   			      
+
+		   			      google.setOnLoadCallback(drawVisualization);
+					    </script>
+				
+					  
+					    <div id="visualization2" style="width: 600px; height: 400px;"></div>
+											</div>
+												
+											</div>
+									
+										</div>
+									</div>
+								<%}%>
 			
 			
 			
-			 <%if (user instanceof Leerling) {%>			
+			 <%if (user.equalsIgnoreCase("Leerling")) {%>			
 				<!-- wrapper (content + menu) -->
 				<div class="wrapper">
 					<div id="wrapper-menu">
@@ -81,15 +117,16 @@
 				</div>
 				<%}%>
 				
-			<%if (user instanceof Docent) {%>			
+			<%if (user.equalsIgnoreCase("Docent")) {%>			
 				<!-- wrapper (content + menu) -->
 				<div class="wrapper">
 					<div id="wrapper-menu">
 						<div id ="menu">
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Docent/lijstLeerlingen.jsp">Alle Leerlingen </a></li>
-				 				<li><a href="Leerlingbeoordelen.jsp">Leerling Beoordelen </a></li>
+								<li><a href="Docent/Mijnleerlingen.jsp">Mijn Leerlingen </a></li>
+								<li><a href="Docent/alleLeerlingen.jsp">Alle Leerlingen </a></li>
+								<li><a href="Docent/Leerlingbeoordelen.jsp">Leerling Beoordelen </a></li>
 				 			</ul>
 						</div>
 					</div>
@@ -102,7 +139,7 @@
 				</div>
 			<%}%>
 				
-			<%if (user instanceof Stagebegeleider) {%>			
+			<%if (user.equalsIgnoreCase("Stagebegeleider")) {%>			
 				<!-- wrapper (content + menu) -->
 				<div class="wrapper">
 					<div id="wrapper-menu">
