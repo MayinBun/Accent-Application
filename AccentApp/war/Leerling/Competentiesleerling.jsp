@@ -5,7 +5,7 @@
 <%@ page import="java.util.ArrayList" %>
 
 <jsp:include page="../pageHeader.jsp">
-	<jsp:param name="titel" value="Competentie toevoegen" />
+	<jsp:param name="titel" value="Competenties Beoordelen" />
 </jsp:include> 
 <%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
@@ -39,7 +39,6 @@ alert("Beoordeling is verzonden !");
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
   				<li><a href="Competentiesleerling.jsp">Competenties invullen</a></li>
-  				<li><a href="Competentiesoverzicht.jsp">Voortgang</a></li>
  			</ul>
 		</div>
 	</div> 

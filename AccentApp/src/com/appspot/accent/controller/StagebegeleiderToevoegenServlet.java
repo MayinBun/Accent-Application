@@ -25,8 +25,6 @@ public class StagebegeleiderToevoegenServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		
-		
 		if(!username.equals("")&&!password.equals("")){
 			synchronized(this){
 				Dao.INSTANCE.createBegeleider(username, password);

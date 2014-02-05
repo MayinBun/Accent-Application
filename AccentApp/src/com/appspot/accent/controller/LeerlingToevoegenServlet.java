@@ -25,10 +25,6 @@ public class LeerlingToevoegenServlet extends HttpServlet {
 		String username = request.getParameter("username").trim().toLowerCase();
 		String password = request.getParameter("password").trim().toLowerCase();
 		
-		
-		Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
-		
-			
 			if(!username.equals("") && !password.equals("")){
 				synchronized(this){
 				Dao.INSTANCE.createLeerling(username, password);

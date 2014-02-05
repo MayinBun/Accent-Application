@@ -27,11 +27,11 @@ public class DocentToevoegenServlet extends HttpServlet {
 		
 		
 		if(!username.equals("")&&!password.equals("")){
-			synchronized(this){
+			
 				Dao.INSTANCE.createDocent(username, password);
 				succes = "Docent succesvol toegevoegd!";
 				request.setAttribute("message", succes);
-			}
+			
 		}
 		else{error = "Velden mogen niet leeg zijn"; request.setAttribute("message", error);}
 		

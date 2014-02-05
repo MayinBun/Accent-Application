@@ -6,7 +6,7 @@
 <%@ page import="java.util.ArrayList" %>
 
 <jsp:include page="../pageHeader.jsp">
-	<jsp:param name="titel" value="Competenties Invullen" />
+	<jsp:param name="titel" value="Leerling Beoordelen" />
 </jsp:include> 
 <%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <%Object obj = getServletContext().getAttribute("leerlingen"); 

@@ -7,7 +7,7 @@
 
 
 <jsp:include page="../pageHeader.jsp">
-	<jsp:param name="titel" value="CompetentiesLeerling" />
+	<jsp:param name="titel" value="Stagiair Beoordelen" />
 </jsp:include> 
 <%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <%Object obj = getServletContext().getAttribute("leerlingen"); 
@@ -43,7 +43,7 @@ alert("Beoordeling is verzonden !");
 		<div id ="menu">
 			<ul>
 				<li><a href="../Index.jsp">Home</a></li>
-  				<li><a href="Competentiesleerling.jsp">Competenties invullen</a></li>
+  				<li><a href="Competentiesleerling.jsp">Stagiair Beoordelen</a></li>
  			</ul>
 		</div>
 	</div> 

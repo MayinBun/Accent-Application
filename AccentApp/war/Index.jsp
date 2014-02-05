@@ -36,7 +36,7 @@
 								<li><a href="Index.jsp">Home</a></li>
 								<li><a href="Administrator/LeerlingenBeheer.jsp">Leerlingen Beheer</a></li>
 								<li><a href="Administrator/DocentenBeheer.jsp">Docenten Beheer</a></li>
-								<li><a href="BegeleiderBeheer.jsp">Begeleider Beheer</a></li>
+								<li><a href="Administrator/BegeleiderBeheer.jsp">Begeleider Beheer</a></li>
 								<li><a href="Administrator/AdminBeheer.jsp">Admin Beheer</a></li>
 				  				<li><a href="Administrator/CompetentiesBeheer.jsp">Competenties Beheer</a></li>
 				 			</ul>
@@ -125,7 +125,6 @@
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
 								<li><a href="Leerling/Competentiesleerling.jsp">Competenties invullen </a></li>
-								<li><a href="Leerling/Competentiesoverzicht.jsp">Voortgang</a></li>
 							</ul>
 						</div>
 					</div>
@@ -251,7 +250,7 @@
 			   			          chartType: 'ColumnChart',
 			   			          dataTable: [['', ${resultl}],
 			   			                      ['', ${valuel}]],
-			   			          options: {'title': 'ingo','legend':'bottom'},
+			   			          options: {'title': 'leerling','legend':'bottom'},
 			   			          
 			   			          containerId: 'dvis2'
 			   			        });
@@ -298,7 +297,7 @@
 						<div id ="menu">
 							<ul>
 							<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Stagebegeleider/Competentiesleerling.jsp">Competenties invullen </a></li>
+								<li><a href="Stagebegeleider/Competentiesleerling.jsp">Stagiair Beoordelen </a></li>
 				 			</ul>
 						</div>
 					</div>
@@ -336,7 +335,7 @@
 			   			          chartType: 'ColumnChart',
 			   			          dataTable: [['', ${resultl}],
 			   			                      ['', ${valuel}]],
-			   			          options: {'title': 'ingo','legend':'bottom'},
+			   			          options: {'title': 'leerling','legend':'bottom'},
 			   			          legend:'bottom',
 			   			          containerId: 'svis2'
 			   			        });
