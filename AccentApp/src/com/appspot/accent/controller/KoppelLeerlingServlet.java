@@ -3,6 +3,7 @@ import com.appspot.accent.dao.Dao;
 import com.appspot.accent.model.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,11 +23,15 @@ public class KoppelLeerlingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String error;
 		String succes;
+		ArrayList<Leerling> newLijst = new ArrayList<Leerling>();
 		String id = request.getParameter("id");
 		Object ojb = request.getSession().getAttribute("userobject");
 		Docent d = (Docent)ojb;
-			
 		
+		Leerling l = Dao.INSTANCE.vindLeerling(Long.parseLong(id));
+		newLijst.add(l);
+		
+		d.getDocentLeerlingen().add(l);
 				
 		response.sendRedirect("lijstLeerlingen.jsp");
 	}

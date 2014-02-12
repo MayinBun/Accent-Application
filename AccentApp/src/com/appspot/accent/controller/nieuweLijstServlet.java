@@ -2,6 +2,7 @@ package com.appspot.accent.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.accent.dao.Dao;
+import com.appspot.accent.model.CompetentieItem;
 import com.appspot.accent.model.Docent;
 import com.appspot.accent.model.Leerling;
-import com.appspot.accent.model.Omschrijving;
 
 
 
@@ -26,23 +27,24 @@ public class nieuweLijstServlet extends HttpServlet{
 			String leerlingid = req.getParameter("selectedleerling");
 			String[] items =req.getParameterValues("competenties");
 			Leerling leerling = Dao.INSTANCE.vindLeerling(Long.parseLong(leerlingid));
-		
+			ArrayList<CompetentieItem> newList = new ArrayList<CompetentieItem>();
+			
+			System.out.println(leerling.getUsername());
+			for(Leerling l : d.getMijnLeerlingen()){
 				for (String s : items){
-					Omschrijving newItem = new Omschrijving(s);
-					d.getMijnLijst().add(newItem);
-					leerling.VoegItemToe(newItem);
+					CompetentieItem newItem = new CompetentieItem(s);
+					newList.add(newItem);
+					System.out.println(s);
+					l.getLeerlingItems().add(newItem);
 				}
 				
-				res.sendRedirect("nieuwelijst.jsp");
+				
+				System.out.println("Lijst toegewezen aan" + l.getUsername());
+				
 			
 			}
-			
-			
-		
-			
-				
-				
-			
-		
-		
+			getServletContext().setAttribute("competentieLijst", newList);
+			req.getRequestDispatcher("nieuwelijst.jsp").forward(req, res);
+		}
+					
 }

@@ -50,7 +50,7 @@
 <%=ci.getUsername()%>
 </td>
 <td>
-<%=ci.getLijst()%>
+<%=ci.getPassword()%>
 </td>
 <%} }%>
 </tr>

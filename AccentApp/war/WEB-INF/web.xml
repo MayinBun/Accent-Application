@@ -133,6 +133,7 @@
     <servlet-name>KoppelBeoordelingServletL</servlet-name>
     <url-pattern>/Leerling/KoppelenBeoordelingCompententieServletL.do</url-pattern>
   </servlet-mapping>
+  
   <!-- Docent  -->
   <servlet>
       <servlet-name>KoppelBeoordelingServletD</servlet-name>
@@ -142,6 +143,16 @@
     <servlet-name>KoppelBeoordelingServletD</servlet-name>
     <url-pattern>/Docent/KoppelenBeoordelingCompententieServletD.do</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+      <servlet-name>nieuweLijstServlet</servlet-name>
+      <servlet-class>com.appspot.accent.controller.nieuweLijstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>nieuweLijstServlet</servlet-name>
+    <url-pattern>/Docent/nieuweLijstServlet.do</url-pattern>
+  </servlet-mapping>
+  
     <!-- Begeleider  -->
   <servlet>
       <servlet-name>KoppelBeoordelingServletS</servlet-name>

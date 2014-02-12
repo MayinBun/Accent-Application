@@ -5,14 +5,26 @@
 </jsp:include>        
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.Docent" %>
-<%@ page import="com.appspot.accent.model.Omschrijving" %>
+<%@ page import="com.appspot.accent.model.Lijst" %>
+<%@ page import="com.appspot.accent.model.Leerling" %>
 <%@ page import="com.appspot.accent.model.User" %>
+<%@ page import="com.appspot.accent.model.CompetentieItem" %>
 <%@ page import="com.appspot.accent.dao.Dao"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%List<User> allUsers = Dao.INSTANCE.getAlleLeerlingen();%>
-<%Docent d =(Docent)request.getSession().getAttribute("userobject"); %>
-<%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
+<%List<CompetentieItem> items = Dao.INSTANCE.getAlleCompetentieItems();%>
+<%
+	List<User> allUsers = Dao.INSTANCE.getAlleLeerlingen();
+%>
+<%
+	Docent d =(Docent)request.getSession().getAttribute("userobject");
+%>
+<%
+	ArrayList<Leerling> mijnleerlingen = d.getDocentLeerlingen();
+%>
+<%
+	Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
+%>
 <link rel="stylesheet" type="text/css" href="/CSS/docent-style.css">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -39,15 +51,21 @@
 <form action="nieuweLijstServlet.do" method="post">			
 <p>Selecteer leerling:</p><select name="selectedleerling">
 
-<% for (User us : allUsers) {%>
+<%
+	for (User us : allUsers) {
+%>
 
 <option value=<%=us.getId()%>><%=us.getUsername()%></option>
 
-<%} %>
+<%
+	}
+%>
 </select>
 
 <p>Selecteer te beoordelen competenties:</p>
-<%for(Omschrijving ci : admin.getAlleCompetentieItems()){ %>
+<%
+	for(CompetentieItem ci : items){
+%>
 <input name="competenties" type="checkbox" value="<%=ci.getItemNaam()%>"><%=ci.getItemNaam()%><br>
 <%}%>
 

@@ -117,7 +117,8 @@
 			
 			
 			
-			 <%if (user instanceof Leerling) {%>			
+			 <%if (user instanceof Leerling) {%>	
+			 <%Leerling l =(Leerling)request.getSession().getAttribute("userobject");%>		
 				<!-- wrapper (content + menu) -->
 				<div class="wrapper">
 					<div id="wrapper-menu">
@@ -125,6 +126,7 @@
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
 								<li><a href="Leerling/Competentiesleerling.jsp">Competenties invullen </a></li>
+								<li><a href="Leerling/competentielijst.jsp">Competentie lijst </a></li>
 							</ul>
 						</div>
 					</div>
@@ -212,8 +214,10 @@
 						<div id ="menu">
 							<ul>
 								<li><a href="Index.jsp">Home</a></li>
-								<li><a href="Docent/lijstLeerlingen.jsp">Alle Leerlingen </a></li>
+								<li><a href="Docent/lijstLeerlingen.jsp">Alle leerlingen </a></li>
+								<li><a href="Docent/mijnLeerlingen.jsp">Mijn leerlingen</a></li>
 								<li><a href="Docent/Competentiesleerling.jsp">Leerling Beoordelen </a></li>
+								<li><a href="Docent/nieuwelijst.jsp">Nieuwe lijst</a></li>
 				 			</ul>
 						</div>
 					</div>
