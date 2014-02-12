@@ -157,6 +157,20 @@ public void removeCompetentieItem(long id){
 	    List<CompetentieItem> items = q.getResultList();
 	    return items;
 	  }
+
+public Leerling vindLeerling(long id) {
+	  EntityManager em = EMFService.get().createEntityManager();
+      Leerling l = em.find(Leerling.class, id);
+      em.close();
+      return l;
+}
+
+public Leerling vindLeerlingNaam(String username) {
+	  EntityManager em = EMFService.get().createEntityManager();
+    Leerling l = em.find(Leerling.class,username);
+    em.close();
+    return l;
+}
     
   
   

@@ -18,6 +18,10 @@
       <%List<User> Administrator = Dao.INSTANCE.getAlleAdmins(); %>
       <%Object obj = getServletContext().getAttribute("bcompetenties"); 
       	ArrayList<Competentie>bcomps = (ArrayList<Competentie>)obj;%>
+      <%Object obj2 = getServletContext().getAttribute("names"); 
+      	ArrayList<String>names = (ArrayList<String>)obj2;%>
+      	<%Object obj3 = getServletContext().getAttribute("average"); 
+      	ArrayList<Integer>average = (ArrayList<Integer>)obj3;%>
       <%String lresult = (String)getServletContext().getAttribute("resultl"); %>
       <%String dresult = (String)getServletContext().getAttribute("resultd"); %>
       <%String sresult = (String)getServletContext().getAttribute("results"); %>
@@ -133,12 +137,15 @@
 					<div id="wrapper-content">
 						<div id="content">
 						<div id="title" style="margin-left:50px"><h3>Overzicht:<h3> </div>
+						<p>${total}<br> ${names} <br> ${average}</p>
 						<script type="text/javascript" src="//www.google.com/jsapi"></script>
 			   				<script type="text/javascript">
 			   				 
 			    			  google.load('visualization', '1', {packages: ['corechart']});
 			   				 </script>
 			   				 <%if (lresult != null){ %>
+			   				 
+			   				
 			   				 <script type="text/javascript">
 			   			     function drawVisualization() {
 			   			        var wrapper = new google.visualization.ChartWrapper({
@@ -224,19 +231,32 @@
 					<div id="wrapper-content">
 						<div id ="content">
 						<div id="title" style="margin-left:50px"><h3>Overzicht:<h3> </div>
+						 <%
+			   				 String aver = "";
+			   				 String namez = "";
+			   				 for(String s : names){
+			   					 namez += "'"+s+"'"+",";
+			   				 }
+			   				
+			   				for(int avg : average){
+			   					aver += avg+",";
+			   				}
+			   				request.setAttribute("namez", namez);
+			   				request.setAttribute("aver", aver);
+			   					 %>
 				 				<script type="text/javascript" src="//www.google.com/jsapi"></script>
 				 			 	<script type="text/javascript">
 			    			  		google.load('visualization', '1', {packages: ['corechart']});
 			   				 	</script>
-			   				 	
-			   				 <script type="text/javascript">
-			   				 <%if(dresult != null){%>
+			   			
+						     <script type="text/javascript">
+						    
 			   			     function drawVisualization() {
 			   			        var wrapper = new google.visualization.ChartWrapper({
 			   			          chartType: 'ColumnChart',
-			   			          dataTable: [['', ${resultd}],
-			   			                      ['', ${valued}]],
-			   			          options: {'title': '${LoggedUser}','legend':'bottom'},
+			   			          dataTable: [['', ${namez}],
+			   			                      ['', ${aver}]],
+			   			          options: {'title': 'Average Score','legend':'bottom'},
 			   			          containerId: 'dvis1'
 			   			        });
 			   			        wrapper.draw();
@@ -244,51 +264,12 @@
 			   			      
 
 			   			      google.setOnLoadCallback(drawVisualization);
-			   			      <%}%>
-						    </script>
-						    
-						    <script type="text/javascript">
-						    <% if (lresult != null){%>
-			   			     function drawVisualization() {
-			   			        var wrapper = new google.visualization.ChartWrapper({
-			   			          chartType: 'ColumnChart',
-			   			          dataTable: [['', ${resultl}],
-			   			                      ['', ${valuel}]],
-			   			          options: {'title': 'leerling','legend':'bottom'},
-			   			          
-			   			          containerId: 'dvis2'
-			   			        });
-			   			        wrapper.draw();
-			   			      }
 			   			      
-
-			   			      google.setOnLoadCallback(drawVisualization);
-			   			      <%}%>
-						    </script>
-						    
-						     <script type="text/javascript">
-						     <% if(sresult != null){%>
-			   			     function drawVisualization() {
-			   			        var wrapper = new google.visualization.ChartWrapper({
-			   			          chartType: 'ColumnChart',
-			   			          dataTable: [['', ${results}],
-			   			                      ['', ${values}]],
-			   			          options: {'title': 'begeleider','legend':'bottom'},
-			   			          containerId: 'dvis3'
-			   			        });
-			   			        wrapper.draw();
-			   			      }
-			   			      
-
-			   			      google.setOnLoadCallback(drawVisualization);
-			   			      <%}%>
 						    </script>
 						    
 						    
 						    
-						    <div id="dvis1" style="width: 400px; height: 300px; margin-left:10px; margin-top:50px;  position:absolute;"></div>
-						    <div id="dvis2" style="width: 400px; height: 300px; margin-left:375px; margin-top:50px; position:absolute;"></div>
-							<div id="dvis3" style="width: 400px; height: 300px; margin-left:740px; margin-top:50px; position:absolute;"></div>
+						    <div id="dvis1" style="width: 750px; height: 300px; margin-left:10px; margin-top:50px;  position:absolute;"></div>
 						</div>
 					</div>
 				</div>

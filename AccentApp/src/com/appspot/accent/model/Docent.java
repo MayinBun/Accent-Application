@@ -40,7 +40,10 @@ public class Docent extends User{
 	}
 	
 	@Transient
-	public ArrayList<Leerling> getDocentLeerlingen(){
+	public ArrayList<Leerling> getMijnLeerlingen(){
+		if(mijnLeerlingen == null){
+			mijnLeerlingen = new ArrayList<Leerling>();
+		}
 		return mijnLeerlingen;
 	}
 	

@@ -3,7 +3,6 @@
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.CompetentieItem" %>
 <%@ page import="com.appspot.accent.model.Leerling" %>
-<%@ page import="com.appspot.accent.model.Lijst" %>
 <%@ page import="java.util.ArrayList" %>
 
 <jsp:include page="../pageHeader.jsp">
@@ -12,7 +11,10 @@
 <%Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));%>
 <%Leerling leerling = (Leerling)request.getSession().getAttribute( "userobject" );%>
 <%ArrayList<CompetentieItem> items = leerling.getLeerlingItems();%>
-<%ArrayList<Lijst> list = leerling.getLijst();%>
+<%Object o = getServletContext().getAttribute("competentieLijst"); 
+ArrayList<CompetentieItem> newlist = (ArrayList<CompetentieItem>)o;
+%>
+
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -51,7 +53,7 @@ alert("Beoordeling is verzonden !");
 		<div id ="content">
 			<div id ="lineup">
 		<div id="title"><h3>Te beoordelen punten:<h3> </div>
-			<%if(items != null){ for( CompetentieItem ci : items)
+			<%for( CompetentieItem ci : newlist)
 					{ %>
 				<form action="KoppelenBeoordelingCompententieServletL.do" method="POST">
 	
@@ -62,7 +64,7 @@ alert("Beoordeling is verzonden !");
 					 <%=ci.getItemNaam()%>
 					 
 					
-					<% } }%>
+					<% } %>
 				
 					<div id="submitBeoordeling"><input type="submit" onclick="myFunction()" name="knop" id="knopcomp"value="Voer Door" /></div>
 				<%=leerling.getUsername()%>

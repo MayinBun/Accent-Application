@@ -13,7 +13,7 @@ public class Competentie {
 	}
 
 	public String getCompetentieItem() {
-		return item.getItemNaam().trim();
+		return item.getItemNaam();
 	}
 
 	public int getScore() {

@@ -5,7 +5,6 @@
 </jsp:include>        
 <%@ page import="com.appspot.accent.model.Administrator" %>
 <%@ page import="com.appspot.accent.model.Docent" %>
-<%@ page import="com.appspot.accent.model.Lijst" %>
 <%@ page import="com.appspot.accent.model.Leerling" %>
 <%@ page import="com.appspot.accent.model.User" %>
 <%@ page import="com.appspot.accent.model.CompetentieItem" %>
@@ -20,7 +19,7 @@
 	Docent d =(Docent)request.getSession().getAttribute("userobject");
 %>
 <%
-	ArrayList<Leerling> mijnleerlingen = d.getDocentLeerlingen();
+	ArrayList<Leerling> mijnleerlingen = d.getMijnLeerlingen();
 %>
 <%
 	Administrator admin = (Administrator)(getServletContext().getAttribute( "admin" ));
@@ -49,18 +48,6 @@
 				<p>${message}</p>		
 			
 <form action="nieuweLijstServlet.do" method="post">			
-<p>Selecteer leerling:</p><select name="selectedleerling">
-
-<%
-	for (User us : allUsers) {
-%>
-
-<option value=<%=us.getId()%>><%=us.getUsername()%></option>
-
-<%
-	}
-%>
-</select>
 
 <p>Selecteer te beoordelen competenties:</p>
 <%

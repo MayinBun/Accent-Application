@@ -16,7 +16,7 @@ public class KoppelLeerlingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+					
 	}
 
 	
@@ -30,8 +30,8 @@ public class KoppelLeerlingServlet extends HttpServlet {
 		
 		Leerling l = Dao.INSTANCE.vindLeerling(Long.parseLong(id));
 		newLijst.add(l);
+		d.getMijnLeerlingen().add(l);
 		
-		d.getDocentLeerlingen().add(l);
 				
 		response.sendRedirect("lijstLeerlingen.jsp");
 	}

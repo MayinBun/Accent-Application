@@ -20,6 +20,8 @@ public class ContextListener implements ServletContextListener {
 	
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<Leerling> leerlingen = new ArrayList<Leerling>();
+	private ArrayList<String> names = new ArrayList<String>();
+	private ArrayList<Integer> average = new ArrayList<Integer>();
     public void contextInitialized(ServletContextEvent sce) {
     	
     	Administrator admin = new Administrator("admin","admin");
@@ -27,7 +29,6 @@ public class ContextListener implements ServletContextListener {
     	
     	Leerling l = new Leerling("ingo","ingo");
     	leerlingen.add(l);
-    	
     	
     	//Demo lijst
     	CompetentieItem c = new CompetentieItem("");
@@ -63,6 +64,8 @@ public class ContextListener implements ServletContextListener {
     	sce.getServletContext().setAttribute("admin", admin);
     	sce.getServletContext().setAttribute("userList", users);
     	sce.getServletContext().setAttribute("leerlingen", leerlingen);
+    	sce.getServletContext().setAttribute("names", names);
+    	sce.getServletContext().setAttribute("average", average);
     }
 
 	
